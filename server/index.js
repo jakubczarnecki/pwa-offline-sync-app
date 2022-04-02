@@ -18,12 +18,23 @@ app.use(cors());
 app.use("/api/notes", notesRouter);
 
 //mongo database connection
+// mongoose.connect(
+//   process.env.MONGO_URL,
+//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
+//   () => {
+//     console.log("Connected to MongoDB.");
+//   }
+// );
+
+// mongo database connection - localhost
 mongoose.connect(
-  process.env.MONGO_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
-  () => {
-    console.log("Connected to MongoDB.");
-  }
+  "mongodb://localhost:27017/",
+  {
+    dbName: "test",
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err) => (err ? console.log(err) : console.log("Connected to database"))
 );
 
 app.listen(PORT, () => {
