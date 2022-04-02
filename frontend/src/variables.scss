@@ -1,0 +1,52 @@
+$primary-color: #d0254a;
+$secondary-color: #dae840;
+
+$background-color: #d0dcf0;
+$inactive-color: #b9b9b9;
+$text-color: #1d1d20;
+$light-color: #f2eeee;
+$white-color: #ffffff;
+$shadow-color: #454545;
+
+// Shadows
+$elevation-1: rgba($shadow-color, 0.8) 0 0 3px;
+$elevation-2: rgba($shadow-color, 0.8) 0 0 5px;
+$elevation-3: rgba($shadow-color, 0.8) 0 0 8px;
+
+// Scale
+$scale-1: 1.333;
+$scale-2: calc($scale-1 * $scale-1);
+$scale-3: calc($scale-1 * $scale-2);
+$scale-4: calc($scale-1 * $scale-3);
+$scale-5: calc($scale-1 * $scale-4);
+$scale-6: calc($scale-1 * $scale-5);
+
+// Breakpoints
+$screen-sm-min: 320px;
+$screen-md-min: 768px;
+$screen-lg-min: 1024px;
+$screen-xl-min: 1200px;
+
+@mixin sm {
+   @media (min-width: #{$screen-sm-min}) {
+      @content;
+   }
+}
+
+@mixin md {
+   @media (min-width: #{$screen-md-min}) {
+      @content;
+   }
+}
+
+@mixin lg {
+   @media (min-width: #{$screen-lg-min}) {
+      @content;
+   }
+}
+
+@mixin xl {
+   @media (min-width: #{$screen-xl-min}) {
+      @content;
+   }
+}

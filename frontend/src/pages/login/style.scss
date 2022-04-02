@@ -1,0 +1,53 @@
+@import "../../variables.scss";
+
+section.login-page {
+   width: 100vw;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 0.5rem;
+
+   @include md {
+      flex-direction: row;
+      padding: 4rem;
+   }
+
+   background: linear-gradient(45deg, $primary-color 0%, $secondary-color 100%);
+
+   .header {
+      h2,
+      p {
+         color: $light-color;
+      }
+   }
+
+   .login-box-wrapper {
+      padding: 3.2rem;
+      padding-bottom: 6.5rem;
+      margin: 2rem 5rem;
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+
+      p.section-title {
+         margin-bottom: 2rem;
+         font-weight: 400;
+
+         strong {
+            font-weight: 900;
+            color: $primary-color;
+         }
+      }
+
+      .text-input-wrapper {
+         margin-bottom: 1rem;
+      }
+
+      .button-wrapper {
+         align-self: flex-end;
+         margin-top: 1.2rem;
+      }
+   }
+}
