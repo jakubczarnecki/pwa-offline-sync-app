@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Button from "../../components/Button/Button";
-import Card from "../../components/Card/Card";
-import TextInput from "../../components/TextInput/TextInput";
+import Button from "../../components/shared/Button/Button";
+import Card from "../../components/shared/Card/Card";
+import TextInput from "../../components/shared/TextInput/TextInput";
 import { dataContext } from "../../context/dataContext";
 import "./style.scss";
 
@@ -21,7 +21,9 @@ const LoginPage = () => {
       }
    }, [state]);
 
-   const handleLogin = () => {
+   const handleLogin = (e) => {
+      e.preventDefault();
+
       dispatch({
          type: "LOGIN",
          payload: {
@@ -42,17 +44,18 @@ const LoginPage = () => {
             <p className="section-title">
                Enter your username <br /> <strong>to plan your day</strong>
             </p>
+            <form onSubmit={handleLogin}>
+               <TextInput
+                  label="Username"
+                  placeholder="Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+               />
 
-            <TextInput
-               label="Username"
-               placeholder="Username"
-               value={username}
-               onChange={(e) => setUsername(e.target.value)}
-            />
-
-            <Button icon="send" onClick={handleLogin}>
-               Lets go!
-            </Button>
+               <Button icon="send" onClick={handleLogin}>
+                  Lets go!
+               </Button>
+            </form>
          </Card>
       </section>
    );
