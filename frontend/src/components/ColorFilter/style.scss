@@ -1,0 +1,29 @@
+.colorFilter-wrapper {
+   // width: 22rem;
+   height: 5rem;
+   background-color: white;
+   border-radius: 0.75rem;
+   display: flex;
+   flex-wrap: wrap;
+   border-bottom: 0.25rem solid gray;
+   justify-content: center;
+   align-items: center;
+
+   .colorTab {
+      background-color: magenta;
+      width: 2.8em;
+      height: 2.8em;
+      border-radius: 100%;
+      transition: 0.2s transform ease-in-out;
+      border: none;
+      margin-inline: 1.2rem;
+
+      &:hover {
+         transform: scale(1.25);
+      }
+   }
+   .colorTab--clicked {
+      @extend .colorTab;
+      border: 0.2em solid black;
+   }
+}
