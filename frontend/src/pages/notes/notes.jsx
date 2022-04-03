@@ -37,21 +37,24 @@ const NotesPage = () => {
    return (
       <section className="notes-page">
          <SideBar username={state.username}></SideBar>
-         <div className="notes-container">
-            {staticNotes.map((note) => (
-               <Note
-                  key={note.id}
-                  variant={note.variant}
-                  content={note.content}
-                  date={note.date}
-               />
-            ))}
+         <div className="notes-layout">
+            <h2 className="notes-header">These are your notes:</h2>
+            <div className="notes-container">
+               {staticNotes.map((note) => (
+                  <Note
+                     key={note.id}
+                     variant={note.variant}
+                     content={note.content}
+                     date={note.date}
+                  />
+               ))}
 
-            {modalOpen ? (
-               <Modal>
-                  <AddNoteModal handleClose={() => setModalOpen(false)} />
-               </Modal>
-            ) : null}
+               {modalOpen ? (
+                  <Modal>
+                     <AddNoteModal handleClose={() => setModalOpen(false)} />
+                  </Modal>
+               ) : null}
+            </div>
          </div>
       </section>
    );
