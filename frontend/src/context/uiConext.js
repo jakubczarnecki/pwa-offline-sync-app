@@ -29,10 +29,10 @@ const uiReducer = (state, action) => {
    }
 };
 
-const UIContextProvider = ({ children }) => {
+const UIProvider = ({ children }) => {
    const [state, dispatch] = useReducer(uiReducer, { loading: false, errors: [] });
    const value = {state, dispatch}
    return <uiContext.Provider value={value}>{children}</uiContext.Provider>;
 };
 
-export { uiContext, UIContextProvider };
+export { uiContext, UIProvider };

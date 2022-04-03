@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { DataProvider } from "./context/dataContext";
-import { UIContextProvider } from "./context/uiConext";
+import { UIProvider } from "./context/uiConext";
 
 import LoginPage from "./pages/login/login";
 import NotesPage from "./pages/notes/notes";
@@ -10,7 +10,7 @@ import AuthenticatedRoute from "./util/AuthenticatedRoute";
 
 function App() {
    return (
-      <UIContextProvider>
+      <UIProvider>
          <DataProvider>
             <BrowserRouter>
                <Routes>
@@ -27,7 +27,7 @@ function App() {
                </Routes>
             </BrowserRouter>
          </DataProvider>
-      </UIContextProvider>
+      </UIProvider>
    );
 }
 
