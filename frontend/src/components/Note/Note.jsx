@@ -1,0 +1,26 @@
+import React from "react";
+import moment from "moment";
+import IconButton from "../shared/IconButton/IconButton";
+import "./style.scss";
+
+const Note = ({ className, content, variant, date }) => {
+   const variantClass =
+      Number.isInteger(variant) && variant > 0 && variant <= 6
+         ? `note-variant-${variant}`
+         : "note-variant-1";
+
+   return (
+      <div className={`note-wrapper ${variantClass} ${className}`}>
+         <textarea value={content} />
+         <div className="note-footer">
+            <p className="date">{moment(date).format("MMM DD, YYYY")}</p>
+            <div className="buttons">
+               <IconButton icon="edit" />
+               <IconButton icon="delete" />
+            </div>
+         </div>
+      </div>
+   );
+};
+
+export default Note;

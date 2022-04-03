@@ -29,6 +29,10 @@ body {
 
 // Typography
 html {
+   .small-title {
+      font-size: calc($scale-1 * 1rem);
+   }
+
    .section-title {
       font-size: calc($scale-2 * 1rem);
       letter-spacing: 1%;

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import AddNoteModal from "../../components/AddNoteModal/AddNoteModal";
 import Button from "../../components/shared/Button/Button";
 import Modal from "../../components/shared/Modal/Modal";
+import Note from "../../components/Note/Note";
 import "./style.scss";
 import { dataContext, DataProvider } from "../../context/dataContext";
 
@@ -17,6 +18,21 @@ const NotesPage = () => {
       });
    };
 
+   const staticNotes = [
+      {
+         id: 0,
+         content: "Learn lyrics of all Nothing but Thieves songs",
+         date: new Date("04-06-2022"),
+         variant: 1,
+      },
+      {
+         id: 1,
+         content: "Eat pizza",
+         date: new Date("04-03-2022"),
+         variant: 2,
+      },
+   ];
+
    return (
       <section className="notes-page">
          <div className="top-bar">
@@ -28,6 +44,16 @@ const NotesPage = () => {
                Wyloguj
             </Button>
          </div>
+
+         {staticNotes.map((note) => (
+            <Note
+               key={note.id}
+               variant={note.variant}
+               content={note.content}
+               date={note.date}
+            />
+         ))}
+
          {modalOpen ? (
             <Modal>
                <AddNoteModal handleClose={() => setModalOpen(false)} />

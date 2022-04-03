@@ -1,0 +1,62 @@
+@import "../../variables.scss";
+
+.note-variant-1 {
+   background-color: #fbc572;
+}
+.note-variant-2 {
+   background-color: #fc9d77;
+}
+.note-variant-3 {
+   background-color: #e2ec8d;
+}
+.note-variant-4 {
+   background-color: #b491fb;
+}
+.note-variant-5 {
+   background-color: #00d3fd;
+}
+.note-variant-6 {
+   background-color: #ec8db5;
+}
+
+.note-wrapper {
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   width: 15rem;
+   height: 15rem;
+   border-radius: 10px;
+   overflow: hidden;
+   border-bottom: rgba($shadow-color, 0.2) solid 2px;
+
+   textarea {
+      background: none;
+      border: none;
+      outline: none;
+      resize: none;
+      color: $text-color;
+      padding: 1rem;
+      display: block;
+      flex-grow: 1;
+      font-size: calc($scale-1 * 1rem);
+   }
+
+   .note-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+
+      .date {
+         color: $text-color;
+      }
+
+      .buttons {
+         display: flex;
+
+         .icon-button-wrapper {
+            margin: 0 0.2rem;
+         }
+      }
+   }
+}

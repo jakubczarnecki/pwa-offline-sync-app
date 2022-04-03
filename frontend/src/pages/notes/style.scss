@@ -5,8 +5,6 @@ section.notes-page {
    min-height: 100vh;
    display: flex;
 
-   background: linear-gradient(45deg, $primary-color 0%, $secondary-color 100%);
-
    div.top-bar {
       width: 100vw;
       padding-top: 1rem;
@@ -16,7 +14,8 @@ section.notes-page {
       align-items: center;
       justify-content: end;
 
-      backdrop-filter: brightness(0.83);
+      // backdrop-filter: brightness(0.83);
+      background-color: rgba($white-color, 0.08);
 
       .button-wrapper {
          height: 2.5rem;
@@ -29,5 +28,9 @@ section.notes-page {
          font-size: 1.5rem;
          color: $white-color;
       }
+   }
+
+   .note-wrapper {
+      margin: 5px;
    }
 }

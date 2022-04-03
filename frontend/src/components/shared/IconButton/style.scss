@@ -1,0 +1,23 @@
+@import "../../../variables.scss";
+
+.icon-button-wrapper {
+   background-color: $text-color;
+   width: 2.2rem;
+   height: 2.2rem;
+   border-radius: 50%;
+   border-bottom: rgba($shadow-color, 0.2) solid 2px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: all 80ms ease-in;
+   cursor: pointer;
+
+   span {
+      color: $white-color;
+      font-size: calc($scale-1 * 1rem);
+   }
+
+   &:active {
+      background-color: $primary-color;
+   }
+}
