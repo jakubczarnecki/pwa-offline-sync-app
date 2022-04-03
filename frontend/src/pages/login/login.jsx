@@ -35,6 +35,7 @@ const LoginPage = () => {
    return (
       <section className="login-page">
          <div className="header">
+            <img src={"/logo_nobg.png"} alt="tick" />
             <h2>
                Start planning <br /> today!
             </h2>
@@ -52,8 +53,8 @@ const LoginPage = () => {
                   onChange={(e) => setUsername(e.target.value)}
                />
 
-               <Button icon="send" onClick={handleLogin}>
-                  Lets go!
+               <Button icon="cloud" onClick={handleLogin}>
+                  Let&apos;s go, weatherglow!
                </Button>
             </form>
          </Card>
