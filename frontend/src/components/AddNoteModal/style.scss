@@ -1,0 +1,51 @@
+@import "../../variables.scss";
+
+div.add-note-modal {
+   width: 100vw;
+   height: 100vh;
+   position: fixed;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   .backdrop {
+      width: 100vw;
+      height: 100vh;
+      background: $backdrop-color;
+      z-index: 9000;
+      position: fixed;
+      top: 0;
+      left: 0;
+   }
+
+   .card-wrapper {
+      z-index: 9001;
+      position: relative;
+      padding: 2rem;
+      padding-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+
+      .close-button {
+         cursor: pointer;
+         padding: 0.5rem;
+         align-self: flex-end;
+      }
+
+      .content {
+         display: flex;
+         flex-direction: column;
+
+         .text-input-wrapper,
+         .text-area-wrapper,
+         .button-wrapper {
+            margin-top: 1rem;
+         }
+
+         .button-wrapper {
+            align-self: flex-end;
+         }
+      }
+   }
+}

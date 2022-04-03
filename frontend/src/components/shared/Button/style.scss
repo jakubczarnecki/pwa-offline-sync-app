@@ -2,12 +2,11 @@
 
 .button-wrapper {
    background-color: $primary-color;
-   color: $light-color;
    display: flex;
    align-items: center;
    padding: 0.66rem;
    border-radius: 5px;
-   box-shadow: $elevation-1;
+   border-bottom: rgba($shadow-color, 0.2) solid 2px;
    text-transform: uppercase;
    cursor: pointer;
 
@@ -16,7 +15,7 @@
    }
 
    p {
-      color: $light-color;
+      color: $white-color;
       padding: 0 0.66rem;
    }
 }

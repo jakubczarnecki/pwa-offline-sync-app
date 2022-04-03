@@ -21,7 +21,7 @@ const dataReducer = (state, action) => {
 
 const DataProvider = ({ children }) => {
    const [state, dispatch] = useReducer(dataReducer, {
-      username: "",
+      username: "", todos: []
    });
 
    const value = { state, dispatch };
