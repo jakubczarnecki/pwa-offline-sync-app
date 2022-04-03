@@ -2,15 +2,35 @@
 
 .side-bar {
    display: flex;
+   flex-direction: column;
    width: 100vw;
    height: 8vh;
-   background: linear-gradient(38deg, $secondary-color 0%, $primary-color 100%);
-
+   background: $background-side-color;
    @include md {
-      width: 8vw;
+      width: 20vw;
       height: 100vh;
    }
 }
 
 .greeter-container {
+   background: linear-gradient(38deg, $secondary-color 0%, $primary-color 100%);
+   padding: 30px;
+}
+
+.greeter-message {
+   color: $white-color;
+   margin-top: 100px;
+}
+
+.options-container {
+   display: flex;
+   height: 100%;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 20px;
+}
+
+.fullwidth-button {
+   width: 100%;
+   margin-bottom: 10px;
 }
