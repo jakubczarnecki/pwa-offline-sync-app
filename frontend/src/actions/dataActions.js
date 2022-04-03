@@ -11,9 +11,9 @@ const getNotes = async (dispatch) => {
       })
       .then((data) => {
          data = data.map((note) => {
-            const { id, user, title, description, deadline, prio } = note;
+            const { _id, user, title, description, deadline, prio } = note;
             return {
-               id: id,
+               id: _id,
                user: user,
                title: title,
                description: description,

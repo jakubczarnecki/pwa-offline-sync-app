@@ -30,6 +30,16 @@ $screen-md-min: 768px;
 $screen-lg-min: 1024px;
 $screen-xl-min: 1200px;
 
+// Note variants
+$note-variant-1: #fbc572;
+$note-variant-2: #fc9d77;
+$note-variant-3: #e2ec8d;
+$note-variant-4: #b491fb;
+$note-variant-5: #00d3fd;
+$note-variant-6: #ec8db5;
+
+
+
 @mixin sm {
    @media (min-width: #{$screen-sm-min}) {
       @content;

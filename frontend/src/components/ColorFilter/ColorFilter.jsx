@@ -10,10 +10,6 @@ export default function ColorFilter() {
       state: { color, notes },
    } = useContext(dataContext);
 
-   useEffect(() => {
-      console.log(notes);
-   }, [color]);
-
    return (
       <div className="colorFilter-wrapper">
          <ColorTab color="red" />

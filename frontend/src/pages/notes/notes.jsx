@@ -22,15 +22,15 @@ const NotesPage = () => {
    const staticNotes = [
       {
          id: 0,
-         content: "Learn lyrics of all Nothing but Thieves songs",
+         description: "Learn lyrics of all Nothing but Thieves songs",
          date: new Date("04-06-2022"),
-         variant: 1,
+         prio: 1,
       },
       {
          id: 1,
-         content: "Eat pizza",
+         description: "Eat pizza",
          date: new Date("04-03-2022"),
-         variant: 2,
+         prio: 2,
       },
    ];
 
@@ -40,11 +40,12 @@ const NotesPage = () => {
          <div className="notes-layout">
             <h2 className="notes-header">These are your notes:</h2>
             <div className="notes-container">
-               {staticNotes.map((note) => (
+               {state.notes?.map((note) => (
+               // {staticNotes.map((note) => (
                   <Note
                      key={note.id}
-                     variant={note.variant}
-                     content={note.content}
+                     variant={note.prio}
+                     content={note.description}
                      date={note.date}
                   />
                ))}

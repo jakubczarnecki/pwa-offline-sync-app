@@ -6,6 +6,8 @@
    width: 100vw;
    height: 8vh;
    background: $background-side-color;
+   position: sticky;
+   top: 0;
    @include md {
       width: 20vw;
       height: 100vh;

@@ -5,6 +5,7 @@ section.notes-page {
    min-height: 100vh;
    display: flex;
    flex-direction: column;
+   
 
    @include md {
       flex-direction: row;
@@ -21,6 +22,7 @@ section.notes-page {
    .notes-container {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
    }
 
    .note-wrapper {

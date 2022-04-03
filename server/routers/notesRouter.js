@@ -17,6 +17,15 @@ notesRouter.param("id", async (req, res, next, id) => {
 });
 
 //CRUD
+
+notesRouter.get("/", async (req, res, next) => {
+  try {
+    const notes = await Note.find({});
+    res.status(200).json(notes);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 //create new note
 notesRouter.post("/", async (req, res, next) => {
   try {

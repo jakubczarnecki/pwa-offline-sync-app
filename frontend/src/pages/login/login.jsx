@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { getNotes } from "../../actions/dataActions";
 import Button from "../../components/shared/Button/Button";
 import Card from "../../components/shared/Card/Card";
 import TextInput from "../../components/shared/TextInput/TextInput";
@@ -20,6 +21,10 @@ const LoginPage = () => {
          navigate(from, { replace: true });
       }
    }, [state]);
+
+   useEffect(() => {
+      getNotes(dispatch);
+   }, []);
 
    const handleLogin = (e) => {
       e.preventDefault();
