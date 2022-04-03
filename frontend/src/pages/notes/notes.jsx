@@ -5,6 +5,7 @@ import Modal from "../../components/shared/Modal/Modal";
 import Note from "../../components/Note/Note";
 import "./style.scss";
 import { dataContext, DataProvider } from "../../context/dataContext";
+import SideBar from "../../components/SideBar/SideBar";
 
 const NotesPage = () => {
    const { state, dispatch } = useContext(dataContext);
@@ -35,30 +36,23 @@ const NotesPage = () => {
 
    return (
       <section className="notes-page">
-         <div className="top-bar">
-            <p className="greeter">
-               Hello, <b>{state.username}!</b>
-            </p>
-            <Button onClick={() => setModalOpen(true)}>Open Modal</Button>
-            <Button icon="logout" className="log-out" onClick={handleLogout}>
-               Wyloguj
-            </Button>
+         <SideBar username={state.username}></SideBar>
+         <div className="notes-container">
+            {staticNotes.map((note) => (
+               <Note
+                  key={note.id}
+                  variant={note.variant}
+                  content={note.content}
+                  date={note.date}
+               />
+            ))}
+
+            {modalOpen ? (
+               <Modal>
+                  <AddNoteModal handleClose={() => setModalOpen(false)} />
+               </Modal>
+            ) : null}
          </div>
-
-         {staticNotes.map((note) => (
-            <Note
-               key={note.id}
-               variant={note.variant}
-               content={note.content}
-               date={note.date}
-            />
-         ))}
-
-         {modalOpen ? (
-            <Modal>
-               <AddNoteModal handleClose={() => setModalOpen(false)} />
-            </Modal>
-         ) : null}
       </section>
    );
 };

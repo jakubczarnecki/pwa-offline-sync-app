@@ -1,0 +1,16 @@
+@import "../../variables.scss";
+
+.side-bar {
+   display: flex;
+   width: 100vw;
+   height: 8vh;
+   background: linear-gradient(38deg, $secondary-color 0%, $primary-color 100%);
+
+   @include md {
+      width: 8vw;
+      height: 100vh;
+   }
+}
+
+.greeter-container {
+}
