@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../shared/Button/Button";
 import IconButton from "../shared/IconButton/IconButton";
 import "./style.scss";
+import { dataContext, DataProvider } from "../../context/dataContext";
 
 const SideBar = ({ className, username }) => {
+   const { state, dispatch } = useContext(dataContext);
+
+   const handleLogout = (e) => {
+      e.preventDefault();
+
+      dispatch({
+         type: "LOGOUT",
+      });
+   };
+
    return (
       <div className="side-bar">
          <div className="greeter-container">
@@ -19,7 +30,7 @@ const SideBar = ({ className, username }) => {
                <Button icon="install_desktop" className="fullwidth-button">
                   Install on device
                </Button>
-               <Button icon="logout" className="fullwidth-button">
+               <Button onClick={handleLogout} icon="logout" className="fullwidth-button">
                   Logout
                </Button>
             </div>
