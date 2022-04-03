@@ -4,9 +4,10 @@ import "./style.scss";
 const NotFoundPage = () => {
    return (
       <section className="not-found">
-         <h2>
-            <h1>404</h1> <br /> not found!
-         </h2>
+         <div>
+            <span className="huge-title">404</span>
+            <h2>not found!</h2>
+         </div>
          <img src={"/cat.png"} alt="sad cat" />
       </section>
    );

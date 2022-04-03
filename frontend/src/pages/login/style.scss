@@ -4,76 +4,81 @@ section.login-page {
    width: 100vw;
    min-height: 100vh;
    display: flex;
-   flex-direction: column;
    align-items: center;
    justify-content: center;
    padding: 0.5rem;
-
-   @include md {
-      flex-direction: row;
-      padding: 4rem;
-   }
+   overflow: hidden;
 
    background: linear-gradient(45deg, $primary-color 0%, $secondary-color 100%);
 
-   img {
-      width: 20rem;
-      margin-left: 5rem;
-      margin-top: -12rem;
-
-      @include md {
-         width: 28rem;
-         margin-top: -12rem;
-         margin-bottom: -3rem;
-         margin-left: 0;
-      }
-   }
-
-   .header {
-      h2,
-      p {
-         text-align: center;
-         margin-bottom: 1.5rem;
-         color: $light-color;
-
-         @include md {
-            margin-bottom: 0;
-            text-align: left;
-         }
-      }
-   }
-
-   .login-box-wrapper {
-      padding: 3.2rem;
-      padding-bottom: 6.5rem;
-      margin: 2rem 5rem;
-      width: 400px;
+   .login-wrapper {
       display: flex;
       flex-direction: column;
-      align-items: left;
+      align-items: center;
 
-      p.section-title {
-         margin-bottom: 2rem;
-         font-weight: 400;
+      @include lg {
+         flex-direction: row;
+         align-items: flex-end;
+         padding: 4rem;
+      }
 
-         strong {
-            font-weight: 900;
-            color: $primary-color;
+      img {
+         width: 20rem;
+         margin-top: -5rem;
+         margin-bottom: -3rem;
+         margin-left: 3rem;
+
+         @include lg {
+            width: 28rem;
+            margin-left: 0;
          }
       }
 
-      .text-input-wrapper {
-         margin-bottom: 1rem;
+      .header {
+         h2,
+         p {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: $light-color;
+
+            @include lg {
+               margin-bottom: 0;
+               text-align: left;
+            }
+         }
       }
 
-      .button-wrapper {
-         text-align: right;
-         width: fit-content;
-         margin-top: 1.2rem;
-         margin-left: auto;
+      .login-box-wrapper {
+         padding: 3.2rem;
+         padding-bottom: 6.5rem;
+         margin-top: 1rem;
+         width: 400px;
+         display: flex;
+         flex-direction: column;
 
-         .material-icons {
-            margin-right: 0.5rem;
+         @include lg {
+            margin-top: 0;
+            margin-left: 4rem;
+         }
+
+         p.section-title {
+            margin-bottom: 2rem;
+            font-weight: 400;
+
+            strong {
+               font-weight: 900;
+               color: $primary-color;
+            }
+         }
+
+         .text-input-wrapper {
+            margin-bottom: 1rem;
+         }
+
+         .button-wrapper {
+            text-align: right;
+            margin-top: 1.2rem;
+            margin-left: auto;
          }
       }
    }

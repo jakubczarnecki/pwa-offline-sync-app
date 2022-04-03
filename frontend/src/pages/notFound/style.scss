@@ -19,7 +19,17 @@ section.not-found {
 
       @include md {
          width: 32rem;
+         margin-right: 2rem;
       }
+   }
+
+   span,
+   h2 {
+      color: $light-color;
+   }
+
+   span {
+      line-height: 0;
    }
 
    h2 {
@@ -28,11 +38,6 @@ section.not-found {
 
       @include md {
          text-align: left;
-      }
-
-      h1 {
-         font-size: 9rem;
-         margin-bottom: -6rem;
       }
    }
 }

@@ -50,6 +50,11 @@ html {
    h1 {
       font-size: calc($scale-6 * 1rem);
    }
+
+   .huge-title {
+      font-size: calc($scale-7 * 1rem);
+      font-weight: bolder;
+   }
 }
 
 // Misc

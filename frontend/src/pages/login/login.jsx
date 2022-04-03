@@ -34,30 +34,32 @@ const LoginPage = () => {
 
    return (
       <section className="login-page">
-         <div className="header">
-            <img src={"/logo_nobg.png"} alt="tick" />
-            <h2>
-               Start planning <br /> today!
-            </h2>
-            <p className="section-title">{"It's totally free!"}</p>
-         </div>
-         <Card className="login-box-wrapper">
-            <p className="section-title">
-               Enter your username <br /> <strong>to plan your day</strong>
-            </p>
-            <form onSubmit={handleLogin}>
-               <TextInput
-                  label="Username"
-                  placeholder="Username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-               />
+         <div className="login-wrapper">
+            <div className="header">
+               <img src={"/logo_nobg.png"} alt="tick" />
+               <h2>
+                  Start planning <br /> today!
+               </h2>
+               <p className="section-title">{"It's totally free!"}</p>
+            </div>
+            <Card className="login-box-wrapper">
+               <p className="section-title">
+                  Enter your username <br /> <strong>to plan your day</strong>
+               </p>
+               <form onSubmit={handleLogin}>
+                  <TextInput
+                     label="Username"
+                     placeholder="Username"
+                     value={username}
+                     onChange={(e) => setUsername(e.target.value)}
+                  />
 
-               <Button icon="cloud" onClick={handleLogin}>
-                  Let&apos;s go, weatherglow!
-               </Button>
-            </form>
-         </Card>
+                  <Button icon="cloud" onClick={handleLogin}>
+                     Let&apos;s go, weatherglow!
+                  </Button>
+               </form>
+            </Card>
+         </div>
       </section>
    );
 };

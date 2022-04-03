@@ -1,6 +1,7 @@
 @import "../../../variables.scss";
 
 .button-wrapper {
+   width: fit-content;
    background-color: $primary-color;
    display: flex;
    align-items: center;
@@ -12,6 +13,7 @@
 
    span {
       color: $light-color;
+      margin-right: 0.5rem;
    }
 
    p {
