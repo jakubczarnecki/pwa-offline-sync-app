@@ -13,8 +13,12 @@
 }
 
 .greeter-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   height: 30%;
    background: linear-gradient(38deg, $secondary-color 0%, $primary-color 100%);
-   padding: 30px;
+   padding: 2rem 2rem;
 }
 
 .greeter-message {

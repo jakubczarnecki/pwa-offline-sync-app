@@ -11,11 +11,17 @@ const SideBar = ({ className, username }) => {
          </div>
          <div className="options-container">
             <div className="options-container-top">
-               <Button className="fullwidth-button">Add note</Button>
+               <Button icon="add_circle" className="fullwidth-button">
+                  Add note
+               </Button>
             </div>
             <div className="options-container-bottom">
-               <Button className="fullwidth-button">Install on device</Button>
-               <Button className="fullwidth-button">Logout</Button>
+               <Button icon="install_desktop" className="fullwidth-button">
+                  Install on device
+               </Button>
+               <Button icon="logout" className="fullwidth-button">
+                  Logout
+               </Button>
             </div>
          </div>
       </div>
