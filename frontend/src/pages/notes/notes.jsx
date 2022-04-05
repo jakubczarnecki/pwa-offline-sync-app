@@ -6,7 +6,7 @@ import Note from "../../components/Note/Note";
 import "./style.scss";
 import { dataContext, DataProvider } from "../../context/dataContext";
 import SideBar from "../../components/SideBar/SideBar";
-import { getNotes } from "../../actions/dataActions";
+import { getNotes, getNotesByUser } from "../../actions/dataActions";
 
 const NotesPage = () => {
    const { state, dispatch } = useContext(dataContext);
@@ -21,8 +21,8 @@ const NotesPage = () => {
    };
 
    useEffect(() => {
-      getNotes(dispatch);
-   }, [state.notes]);
+      getNotesByUser(dispatch, {user: state.username});
+   }, []);
 
    const staticNotes = [
       {

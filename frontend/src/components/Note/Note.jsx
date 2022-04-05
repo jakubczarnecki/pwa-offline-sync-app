@@ -10,7 +10,6 @@ const Note = ({ id, className, content, variant, date }) => {
       Number.isInteger(variant) && variant > 0 && variant <= 6
          ? `note-variant-${variant}`
          : "note-variant-1";
-   const { dispatch } = useContext(dataContext);
 
    return (
       <div className={`note-wrapper ${variantClass} ${className}`}>

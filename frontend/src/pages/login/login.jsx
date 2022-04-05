@@ -17,14 +17,10 @@ const LoginPage = () => {
    useEffect(() => {
       if (state.username) {
          const from = location.state?.from?.pathname || "/";
-
          navigate(from, { replace: true });
       }
    }, [state]);
 
-   useEffect(() => {
-      getNotes(dispatch);
-   }, []);
 
    const handleLogin = (e) => {
       e.preventDefault();

@@ -1,4 +1,3 @@
-
 /**
  *
  * TODO - na razie nie dodalem uicontext temu nie mam jak ustawic error
@@ -22,12 +21,11 @@ const getNotes = async (dispatch) => {
             };
          });
          dispatch({ type: "SET_NOTES", payload: { notes: data } });
-         return data;
       })
       .catch((err) => console.error(err.message));
 };
 
-const getNotesByUser = async (user) => {
+const getNotesByUser = async (dispatch, user) => {
    fetch("/api/notes/byUser", {
       method: "POST",
       headers: {
@@ -40,10 +38,11 @@ const getNotesByUser = async (user) => {
          return res.json();
       })
       .then((data) => {
+         console.log(data);
          data = data.map((note) => {
-            const { id, user, title, description, deadline, prio } = note;
+            const { _id, user, title, description, deadline, prio } = note;
             return {
-               id: id,
+               id: _id,
                user: user,
                title: title,
                description: description,
@@ -51,12 +50,12 @@ const getNotesByUser = async (user) => {
                prio: prio,
             };
          });
-         return data;
+         dispatch({ type: "SET_NOTES", payload: { notes: data } });
       })
       .catch((err) => console.error(err.message));
 };
 
-const getNotesById = (id) => {
+const getNotesById = (dispatch, id) => {
    fetch(`/api/notes?id=${id}`)
       .then((res) => {
          if (!res.ok) throw new Error(res.statusText);
@@ -64,9 +63,9 @@ const getNotesById = (id) => {
       })
       .then((data) => {
          data = data.map((note) => {
-            const { id, user, title, description, deadline, prio } = note;
+            const { _id, user, title, description, deadline, prio } = note;
             return {
-               id: id,
+               id: _id,
                user: user,
                title: title,
                description: description,
@@ -74,7 +73,7 @@ const getNotesById = (id) => {
                prio: prio,
             };
          });
-         return data;
+         dispatch({ type: "SET_NOTES", payload: { notes: data } });
       })
       .catch((err) => console.error(err.message));
 };
