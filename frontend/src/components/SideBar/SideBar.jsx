@@ -4,7 +4,7 @@ import IconButton from "../shared/IconButton/IconButton";
 import "./style.scss";
 import { dataContext, DataProvider } from "../../context/dataContext";
 
-const SideBar = ({ className, username }) => {
+const SideBar = ({ className, username, modal }) => {
    const { state, dispatch } = useContext(dataContext);
 
    const handleLogout = (e) => {
@@ -22,7 +22,7 @@ const SideBar = ({ className, username }) => {
          </div>
          <div className="options-container">
             <div className="options-container-top">
-               <Button icon="add_circle" className="fullwidth-button">
+               <Button icon="add_circle" className="fullwidth-button" onClick={modal}>
                   Add note
                </Button>
             </div>

@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./style.scss";
 import Button from "../shared/Button/Button";
 import TextInput from "../shared/TextInput/TextInput";
 import Card from "../shared/Card/Card";
 import TextArea from "../shared/TextArea/TextArea";
+import { addNote } from "../../actions/dataActions";
+import { dataContext } from "../../context/dataContext";
 
 const AddNoteModal = ({ handleClose }) => {
    const [noteData, setNoteData] = useState({
       title: "",
-      content: "",
+      description: "",
       date: new Date(),
    });
+
+   const { state } = useContext(dataContext);
 
    return (
       <div className="add-note-modal">
@@ -43,10 +47,25 @@ const AddNoteModal = ({ handleClose }) => {
                   label="Content"
                   placeholder="Content"
                   value={noteData.content}
-                  onChange={(e) => setNoteData({ ...noteData, content: e.target.value })}
+                  onChange={(e) =>
+                     setNoteData({ ...noteData, description: e.target.value })
+                  }
                />
 
-               <Button onClick={handleClose}>Submit</Button>
+               <Button
+                  onClick={() => {
+                     addNote({
+                        user: state.username,
+                        title: noteData.title,
+                        description: noteData.description,
+                        deadline: noteData.date,
+                        prio: 5
+                     });
+                     handleClose();
+                  }}
+               >
+                  Submit
+               </Button>
             </div>
          </Card>
       </div>

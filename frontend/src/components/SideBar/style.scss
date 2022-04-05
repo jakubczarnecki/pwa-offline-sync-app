@@ -8,6 +8,7 @@
    background: $background-side-color;
    position: sticky;
    top: 0;
+   z-index: 0;
    @include md {
       width: 20vw;
       height: 100vh;

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import AddNoteModal from "../../components/AddNoteModal/AddNoteModal";
 import Button from "../../components/shared/Button/Button";
 import Modal from "../../components/shared/Modal/Modal";
@@ -6,6 +6,7 @@ import Note from "../../components/Note/Note";
 import "./style.scss";
 import { dataContext, DataProvider } from "../../context/dataContext";
 import SideBar from "../../components/SideBar/SideBar";
+import { getNotes } from "../../actions/dataActions";
 
 const NotesPage = () => {
    const { state, dispatch } = useContext(dataContext);
@@ -18,6 +19,10 @@ const NotesPage = () => {
          type: "LOGOUT",
       });
    };
+
+   useEffect(() => {
+      getNotes(dispatch);
+   }, [state.notes]);
 
    const staticNotes = [
       {
@@ -36,14 +41,15 @@ const NotesPage = () => {
 
    return (
       <section className="notes-page">
-         <SideBar username={state.username}></SideBar>
+         <SideBar username={state.username} modal={setModalOpen} />
          <div className="notes-layout">
-            <h2 className="notes-header">These are your notes:</h2>
+            <h2 className="notes-header">These are your notes: </h2>
             <div className="notes-container">
                {state.notes?.map((note) => (
-               // {staticNotes.map((note) => (
+                  // {staticNotes.map((note) => (
                   <Note
                      key={note.id}
+                     id={note.id}
                      variant={note.prio}
                      content={note.description}
                      date={note.date}
