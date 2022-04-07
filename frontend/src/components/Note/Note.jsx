@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import moment from "moment";
 import IconButton from "../shared/IconButton/IconButton";
 import "./style.scss";
-import { deleteNote, getNotes } from "../../actions/dataActions";
-import { dataContext } from "../../context/dataContext";
+import { deleteNote } from "../../actions/dataActions";
 
 const Note = ({ id, className, content, variant, date }) => {
    const variantClass =

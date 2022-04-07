@@ -5,27 +5,28 @@ import Button from "../../components/shared/Button/Button";
 import Card from "../../components/shared/Card/Card";
 import TextInput from "../../components/shared/TextInput/TextInput";
 import { dataContext } from "../../context/dataContext";
+import { uiContext } from "../../context/uiConext";
 import "./style.scss";
 
 const LoginPage = () => {
    const [username, setUsername] = useState("");
-   const { state, dispatch } = useContext(dataContext);
+   const { state: stateData, dispatch: dispatchData } = useContext(dataContext);
+   const { state: stateUI, dispatch: dispatchUI } = useContext(uiContext);
    const navigate = useNavigate();
    const location = useLocation();
 
    // If already logged in redirect to notes page
    useEffect(() => {
-      if (state.username) {
+      if (stateData.username) {
          const from = location.state?.from?.pathname || "/";
          navigate(from, { replace: true });
       }
-   }, [state]);
-
+   }, [stateData]);
 
    const handleLogin = (e) => {
       e.preventDefault();
 
-      dispatch({
+      dispatchData({
          type: "LOGIN",
          payload: {
             username,

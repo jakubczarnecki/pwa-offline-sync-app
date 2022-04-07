@@ -7,21 +7,23 @@ import "./style.scss";
 import { dataContext, DataProvider } from "../../context/dataContext";
 import SideBar from "../../components/SideBar/SideBar";
 import { getNotes, getNotesByUser } from "../../actions/dataActions";
+import { uiContext } from "../../context/uiConext";
 
 const NotesPage = () => {
-   const { state, dispatch } = useContext(dataContext);
+   const { state: stateData, dispatch: dispatchData } = useContext(dataContext);
+   const { state: stateUI, dispatch: dispatchUI } = useContext(uiContext);
    const [modalOpen, setModalOpen] = useState(false);
 
    const handleLogout = (e) => {
       e.preventDefault();
 
-      dispatch({
+      dispatchData({
          type: "LOGOUT",
       });
    };
 
    useEffect(() => {
-      getNotesByUser(dispatch, {user: state.username});
+      getNotesByUser(dispatchUI, dispatchData, { user: stateData.username });
    }, []);
 
    const staticNotes = [
@@ -41,21 +43,24 @@ const NotesPage = () => {
 
    return (
       <section className="notes-page">
-         <SideBar username={state.username} modal={setModalOpen} />
+         <SideBar username={stateData.username} modal={setModalOpen} />
          <div className="notes-layout">
             <h2 className="notes-header">These are your notes: </h2>
             <div className="notes-container">
-               {state.notes?.map((note) => (
-                  // {staticNotes.map((note) => (
-                  <Note
-                     key={note.id}
-                     id={note.id}
-                     variant={note.prio}
-                     content={note.description}
-                     date={note.date}
-                  />
-               ))}
-
+               {stateData.notes.length !== 0 ? (
+                  stateData.notes?.map((note) => (
+                     /* {staticNotes.map((note) => ( */
+                     <Note
+                        key={note.id}
+                        id={note.id}
+                        variant={note.prio}
+                        content={note.description}
+                        date={note.date}
+                     />
+                  ))
+               ) : (
+                  <p>Notes has not been found :C</p>
+               )}
                {modalOpen ? (
                   <Modal>
                      <AddNoteModal handleClose={() => setModalOpen(false)} />
