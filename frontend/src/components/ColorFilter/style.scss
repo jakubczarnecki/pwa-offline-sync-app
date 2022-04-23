@@ -1,29 +1,64 @@
-.colorFilter-wrapper {
-   // width: 22rem;
+@import "../../variables.scss";
+
+// nalezy zrobic tutaj rwd (w zaleznosci jaka macie wizje)
+@import "../../variables.scss";
+
+.color-filter-wrapper {
    height: 5rem;
-   background-color: white;
+   background-color: $background-color;
+   // background-color: white;
    border-radius: 0.75rem;
    display: flex;
    flex-wrap: wrap;
-   border-bottom: 0.25rem solid gray;
+   // border-bottom: 0.25rem solid gray;
    justify-content: center;
    align-items: center;
 
-   .colorTab {
-      background-color: magenta;
-      width: 2.8em;
-      height: 2.8em;
+   .color-tab {
+      width: 2.2rem;
+      height: 2.2rem;
       border-radius: 100%;
       transition: 0.2s transform ease-in-out;
       border: none;
-      margin-inline: 1.2rem;
+      margin-inline: 0.8rem;
+      cursor: pointer;
+
+      @include md {
+         width: 2.8rem;
+         height: 2.8rem;
+         margin-inline: 1.2rem;
+      }
 
       &:hover {
          transform: scale(1.25);
       }
    }
-   .colorTab--clicked {
-      @extend .colorTab;
-      border: 0.2em solid black;
+   .color-tab--clicked {
+      @extend .color-tab;
+      border: 0.2rem solid black;
+   }
+
+   .light-orange {
+      background-color: $note-variant-1;
+   }
+
+   .orange {
+      background-color: $note-variant-2;
+   }
+
+   .yellow {
+      background-color: $note-variant-3;
+   }
+
+   .purple {
+      background-color: $note-variant-4;
+   }
+
+   .turquoise {
+      background-color: $note-variant-5;
+   }
+
+   .pink {
+      background-color: $note-variant-6;
    }
 }

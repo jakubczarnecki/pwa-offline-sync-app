@@ -57,6 +57,7 @@ const getNotesByUser = async (dispatchUI, dispatchData, user) => {
       });
       dispatchData({ type: "SET_NOTES", payload: { notes: notes } });
       dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
+      return notes;
    } catch (err) {
       dispatchUI({ type: "SET_ERRORS", payload: [err.message] });
       dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
@@ -103,7 +104,7 @@ const addNote = async (dispatchUI, dispatchData, note) => {
       });
       if (!response.ok) throw new Error(response.statusText);
       const { user } = note;
-      await getNotesByUser(dispatchUI, dispatchData, {user: user}); // oj cos czuje ze tego nie powinno tu byc
+      await getNotesByUser(dispatchUI, dispatchData, { user: user }); // oj cos czuje ze tego nie powinno tu byc
    } catch (err) {
       dispatchUI({ type: "SET_ERRORS", payload: [err.message] });
       dispatchUI({ type: "SET_LOADING", payload: { loading: false } });

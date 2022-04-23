@@ -61,7 +61,7 @@ const AddNoteModal = ({ handleClose }) => {
                         title: noteData.title,
                         description: noteData.description,
                         deadline: noteData.date,
-                        prio: 5
+                        prio: 6
                      });
                      handleClose();
                   }}

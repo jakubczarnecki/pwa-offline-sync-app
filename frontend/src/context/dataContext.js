@@ -4,7 +4,7 @@ const dataContext = createContext();
 
 const initialState = {
    username: "",
-   color: "color",
+   prio: "",
    notes: [],
    currentRoute: {}
 };
@@ -20,10 +20,10 @@ const dataReducer = (state, action) => {
       case "LOGOUT": {
          return initialState;
       }
-      case "SET_COLOR": {
+      case "SET_PRIO": {
          return {
             ...state,
-            color: action.payload.color,
+            prio: action.payload.prio,
          };
       }
       case "SET_NOTES": {

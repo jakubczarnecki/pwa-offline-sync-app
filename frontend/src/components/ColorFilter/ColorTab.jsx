@@ -3,34 +3,35 @@ import { getNotes } from "../../actions/dataActions";
 import { dataContext } from "../../context/dataContext";
 import "./style.scss";
 
-export default function ColorTab({ color }) {
-   const [clicked, isClicked] = useState(false);
+export default function ColorTab({ prio, color }) {
+   const [active, isActive] = useState(false);
    const { state, dispatch } = useContext(dataContext);
 
    useEffect(() => {
-      if (color !== state.color) isClicked(false);
-   }, [state.color]);
+      if (prio !== state.prio) isActive(false);
+   }, [state.prio]);
 
-   const note = {
-      user: "WSAPSASDSDA",
-      title: "EDAWWEDWADWDAWDWDA",
-      description: "DasWADWDAWDAWDAWADWADWDWDdsa",
-      deadline: "2022-12-12",
-      prio: 4,
+   // const note = {
+   //    user: "WSAPSASDSDA",
+   //    title: "EDAWWEDWADWDAWDWDA",
+   //    description: "DasWADWDAWDAWDAWADWADWDWDdsa",
+   //    deadline: "2022-12-12",
+   //    prio: 4,
+   // };
+
+   const handleClick = () => {
+      isActive(!active);
+      const prioValue = !active ? prio : "";
+      dispatch({
+         type: "SET_PRIO",
+         payload: { prio: prioValue },
+      });
    };
 
    return (
       <button
-         className={clicked ? "colorTab--clicked" : "colorTab"}
-         onClick={() => {
-            getNotes(dispatch);
-            isClicked(!clicked);
-            dispatch({
-               type: "SET_COLOR",
-               payload: { color: color },
-            });
-            // addNote(note);
-         }}
+         className={active ? `color-tab--clicked ${color}` : `color-tab ${color}`}
+         onClick={handleClick}
       ></button>
    );
 }
