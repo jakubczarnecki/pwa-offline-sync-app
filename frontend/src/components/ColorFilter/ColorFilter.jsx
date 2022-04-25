@@ -1,15 +1,8 @@
 import "./style.scss";
-import React, { useContext, useState, useEffect } from "react";
+import React from "react";
 import ColorTab from "./ColorTab";
-import { dataContext } from "../../context/dataContext";
 
 export default function ColorFilter() {
-   const [value, setValue] = useState();
-   const [children, setChildren] = useState([]);
-   const {
-      state: { notes },
-   } = useContext(dataContext);
-
    return (
       <div className="color-filter-wrapper">
          <ColorTab prio={1} color="light-orange" />

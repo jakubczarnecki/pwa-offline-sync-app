@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import Button from "../shared/Button/Button";
-import IconButton from "../shared/IconButton/IconButton";
 import "./style.scss";
-import { dataContext, DataProvider } from "../../context/dataContext";
+import { dataContext } from "../../context/dataContext";
 
 const SideBar = ({ className, username, modal }) => {
-   const { state, dispatch } = useContext(dataContext);
+   const { dispatch } = useContext(dataContext);
 
    const handleLogout = (e) => {
       e.preventDefault();
@@ -16,7 +15,7 @@ const SideBar = ({ className, username, modal }) => {
    };
 
    return (
-      <div className="side-bar">
+      <div className={`side-bar ${className}`}>
          <div className="greeter-container">
             <div className="greeter-message section-title ">Hello, {username}!</div>
          </div>

@@ -1,17 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
+import "./style.scss";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getNotes } from "../../actions/dataActions";
 import Button from "../../components/shared/Button/Button";
 import Card from "../../components/shared/Card/Card";
 import TextInput from "../../components/shared/TextInput/TextInput";
 import { dataContext } from "../../context/dataContext";
-import { uiContext } from "../../context/uiConext";
-import "./style.scss";
 
 const LoginPage = () => {
    const [username, setUsername] = useState("");
    const { state: stateData, dispatch: dispatchData } = useContext(dataContext);
-   const { state: stateUI, dispatch: dispatchUI } = useContext(uiContext);
    const navigate = useNavigate();
    const location = useLocation();
 

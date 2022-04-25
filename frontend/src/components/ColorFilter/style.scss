@@ -1,16 +1,11 @@
 @import "../../variables.scss";
 
-// nalezy zrobic tutaj rwd (w zaleznosci jaka macie wizje)
-@import "../../variables.scss";
-
 .color-filter-wrapper {
    height: 5rem;
    background-color: $background-color;
-   // background-color: white;
    border-radius: 0.75rem;
    display: flex;
    flex-wrap: wrap;
-   // border-bottom: 0.25rem solid gray;
    justify-content: center;
    align-items: center;
 
@@ -35,7 +30,7 @@
    }
    .color-tab--clicked {
       @extend .color-tab;
-      border: 0.2rem solid black;
+      border: 0.2rem solid $text-color;
    }
 
    .light-orange {

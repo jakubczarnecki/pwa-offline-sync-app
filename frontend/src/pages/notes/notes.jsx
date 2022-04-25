@@ -24,7 +24,13 @@ const NotesPage = () => {
    const [localNotes, setLocalNotes] = useState([]);
 
    useEffect(() => {
-      getData();
+      const fetchData = async () => {
+         const data = await getNotesByUser(dispatchUI, dispatchData, { user: username });
+         setFetchedNotes(data);
+         setLocalNotes(data);
+      };
+
+      fetchData();
    }, []);
 
    useEffect(() => {
@@ -34,35 +40,6 @@ const NotesPage = () => {
       }
       setLocalNotes(fetchedNotes?.filter((note) => note.prio === prio));
    }, [prio]);
-
-   const getData = async () => {
-      const data = await getNotesByUser(dispatchUI, dispatchData, { user: username });
-      setFetchedNotes(data);
-      setLocalNotes(data);
-   };
-
-   const handleLogout = (e) => {
-      e.preventDefault();
-
-      dispatchData({
-         type: "LOGOUT",
-      });
-   };
-
-   // const staticNotes = [
-   //    {
-   //       id: 0,
-   //       description: "Learn lyrics of all Nothing but Thieves songs",
-   //       date: new Date("04-06-2022"),
-   //       prio: 1,
-   //    },
-   //    {
-   //       id: 1,
-   //       description: "Eat pizza",
-   //       date: new Date("04-03-2022"),
-   //       prio: 2,
-   //    },
-   // ];
 
    return (
       <section className="notes-page">

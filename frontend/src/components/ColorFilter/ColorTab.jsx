@@ -7,16 +7,10 @@ export default function ColorTab({ prio, color }) {
    const { state, dispatch } = useContext(dataContext);
 
    useEffect(() => {
-      if (prio !== state.prio) isActive(false);
+      if (prio !== state.prio) {
+         isActive(false);
+      }
    }, [state.prio]);
-
-   // const note = {
-   //    user: "WSAPSASDSDA",
-   //    title: "EDAWWEDWADWDAWDWDA",
-   //    description: "DasWADWDAWDAWDAWADWADWDWDdsa",
-   //    deadline: "2022-12-12",
-   //    prio: 4,
-   // };
 
    const handleClick = () => {
       isActive(!active);
@@ -29,8 +23,8 @@ export default function ColorTab({ prio, color }) {
 
    return (
       <button
-         className={active ? `color-tab--clicked ${color}` : `color-tab ${color}`}
+         className={`${active ? `color-tab--clicked` : `color-tab`} ${color}`}
          onClick={handleClick}
-      ></button>
+      />
    );
 }
