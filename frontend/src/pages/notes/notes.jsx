@@ -1,12 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import AddNoteModal from "../../components/AddNoteModal/AddNoteModal";
-import Button from "../../components/shared/Button/Button";
 import Modal from "../../components/shared/Modal/Modal";
 import Note from "../../components/Note/Note";
 import "./style.scss";
 import { dataContext } from "../../context/dataContext";
 import SideBar from "../../components/SideBar/SideBar";
-import  { getNotesByUser } from "../../actions/dataActions";
+import { getNotesByUser } from "../../actions/dataActions";
 import { uiContext } from "../../context/uiConext";
 import ColorFilter from "../../components/ColorFilter/ColorFilter";
 
@@ -33,7 +32,7 @@ const NotesPage = () => {
          setLocalNotes(fetchedNotes);
          return;
       }
-      setLocalNotes(fetchedNotes.filter((note) => note.prio === prio));
+      setLocalNotes(fetchedNotes?.filter((note) => note.prio === prio));
    }, [prio]);
 
    const getData = async () => {
@@ -91,8 +90,9 @@ const NotesPage = () => {
                      <AddNoteModal handleClose={() => setModalOpen(false)} />
                   </Modal>
                ) : null}
-               {fetchedNotes.length === 0 ||
-                  (localNotes.length === 0 && <p>Notes has not been found :C</p>)}
+               {(fetchedNotes?.length === 0 || localNotes?.length === 0) && (
+                  <p>Notes has not been found :C</p>
+               )}
             </div>
          </div>
       </section>

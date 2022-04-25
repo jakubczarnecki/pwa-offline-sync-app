@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from "react";
-import { getNotes } from "../../actions/dataActions";
 import { dataContext } from "../../context/dataContext";
 import "./style.scss";
 
