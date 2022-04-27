@@ -4,7 +4,7 @@
  */
 
 const getNotes = async (dispatchUI, dispatchData) => {
-   dispatchUI({ type: "CLEAR_ERRORS", payload: { errors: [] } });
+   dispatchUI({ type: "CLEAR_ERRORS" });
    dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
 
    try {
@@ -31,7 +31,7 @@ const getNotes = async (dispatchUI, dispatchData) => {
 };
 
 const getNotesByUser = async (dispatchUI, dispatchData, user) => {
-   dispatchUI({ type: "CLEAR_ERRORS", payload: { errors: [] } });
+   dispatchUI({ type: "CLEAR_ERRORS" });
    dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
 
    try {
@@ -65,7 +65,7 @@ const getNotesByUser = async (dispatchUI, dispatchData, user) => {
 };
 
 const getNotesById = async (dispatchUI, dispatchData, id) => {
-   dispatchUI({ type: "CLEAR_ERRORS", payload: { errors: [] } });
+   dispatchUI({ type: "CLEAR_ERRORS" });
    dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
 
    try {
@@ -92,7 +92,7 @@ const getNotesById = async (dispatchUI, dispatchData, id) => {
 };
 
 const addNote = async (dispatchUI, dispatchData, note) => {
-   dispatchUI({ type: "CLEAR_ERRORS", payload: { errors: [] } });
+   dispatchUI({ type: "CLEAR_ERRORS" });
    dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
    try {
       const response = await fetch("/api/notes", {
@@ -112,7 +112,7 @@ const addNote = async (dispatchUI, dispatchData, note) => {
 };
 
 const updateNote = async (dispatchUI, id, note) => {
-   dispatchUI({ type: "CLEAR_ERRORS", payload: { errors: [] } });
+   dispatchUI({ type: "CLEAR_ERRORS" });
    dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
    try {
       const response = await fetch(`/api/notes/${id}`, {
@@ -131,7 +131,7 @@ const updateNote = async (dispatchUI, id, note) => {
 };
 
 const deleteNote = async (dispatchUI, id) => {
-   dispatchUI({ type: "CLEAR_ERRORS", payload: { errors: [] } });
+   dispatchUI({ type: "CLEAR_ERRORS" });
    dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
 
    try {

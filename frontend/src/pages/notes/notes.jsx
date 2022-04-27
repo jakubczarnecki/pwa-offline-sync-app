@@ -52,7 +52,6 @@ const NotesPage = () => {
                   <p>Loading...</p>
                ) : (
                   localNotes?.map((note) => (
-                     /* {staticNotes.map((note) => ( */
                      <Note
                         key={note.id}
                         id={note.id}

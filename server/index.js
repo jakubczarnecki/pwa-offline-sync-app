@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
-const morgan = require("morgan");
+const config = require("config");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
@@ -17,20 +17,10 @@ app.use(cors());
 //routing
 app.use("/api/notes", notesRouter);
 
-//mongo database connection
-// mongoose.connect(
-//   process.env.MONGO_URL,
-//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
-//   () => {
-//     console.log("Connected to MongoDB.");
-//   }
-// );
-
 // mongo database connection - localhost
 mongoose.connect(
-  "mongodb://localhost:27017/",
+  config.DBHost,
   {
-    dbName: "test",
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
