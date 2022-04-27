@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jakubczarnecki/pwa-offline-sync-app#readme",
   "dependencies": {
+    "config": "^3.3.7",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
