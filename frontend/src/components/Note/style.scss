@@ -1,22 +1,23 @@
 @import "../../variables.scss";
 
 .note-variant-1 {
-   background-color: #fbc572;
+   background-color: $note-variant-1;
+
 }
 .note-variant-2 {
-   background-color: #fc9d77;
+   background-color: $note-variant-2;
 }
 .note-variant-3 {
-   background-color: #e2ec8d;
+   background-color: $note-variant-3;
 }
 .note-variant-4 {
-   background-color: #b491fb;
+   background-color: $note-variant-4;
 }
 .note-variant-5 {
-   background-color: #00d3fd;
+   background-color: $note-variant-5;
 }
 .note-variant-6 {
-   background-color: #ec8db5;
+   background-color: $note-variant-6;
 }
 
 .note-wrapper {
