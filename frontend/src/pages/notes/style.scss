@@ -5,35 +5,47 @@ section.notes-page {
    min-height: 100vh;
    display: flex;
    flex-direction: column;
-   
 
    @include md {
       flex-direction: row;
+      
    }
 
    .notes-layout {
-      padding: 45px 40px;
+      padding: 45px 0px;
+      // width: 100%;
       display: flex;
       justify-content: flex-start;
       flex-direction: column;
       align-items: center;
+
+      .notes-header {
+         text-align: center;
+         padding: 40px 0;
+      }
+
+      .notes-container {
+         margin-top: 3rem;
+         display: flex;
+         flex-direction: row;
+         flex-wrap: wrap;
+         justify-content: center;
+         align-items: center;
+         // width: 60vw;  
+      }
+   
+      .note-wrapper {
+         margin: 5px;
+      }
+
+      @include md {
+         width: 100%;
+         // position: relative;
+         // padding-left: 12rem;
+      }
    }
 
-   .notes-header {
-      padding: 40px 0;
-   }
+  
 
-   .notes-container {
-      margin-top: 3rem;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      width: 80vw;  
-   }
-
-   .note-wrapper {
-      margin: 5px;
-   }
+   
 }
