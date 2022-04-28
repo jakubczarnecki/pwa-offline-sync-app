@@ -28,9 +28,20 @@
          transform: scale(1.25);
       }
    }
+   
+   @keyframes selected {
+      50%  {opacity:0.7;}
+    }
+
    .color-tab--clicked {
       @extend .color-tab;
-      border: 0.2rem solid $text-color;
+      // border: 0.2rem solid;
+      // border-radius: 2.2rem;
+
+      transform: scale(1.25);
+      animation-name: selected;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
    }
 
    .light-orange {
@@ -39,21 +50,27 @@
 
    .orange {
       background-color: $note-variant-2;
+
    }
 
    .yellow {
       background-color: $note-variant-3;
+
    }
 
    .purple {
       background-color: $note-variant-4;
+
    }
 
    .turquoise {
       background-color: $note-variant-5;
+
+
    }
 
    .pink {
       background-color: $note-variant-6;
+
    }
 }
