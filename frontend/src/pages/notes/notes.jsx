@@ -67,7 +67,7 @@ const NotesPage = () => {
                   </Modal>
                ) : null}
                {(fetchedNotes?.length === 0 || localNotes?.length === 0) && (
-                  <p>Notes has not been found :C</p>
+                  <p>No note has been found :C</p>
                )}
             </div>
          </div>

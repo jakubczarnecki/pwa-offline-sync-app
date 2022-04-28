@@ -12,7 +12,7 @@ section.notes-page {
    }
 
    .notes-layout {
-      padding: 45px 0px;
+      padding: 15px 10px;
       // width: 100%;
       display: flex;
       justify-content: flex-start;
@@ -30,7 +30,9 @@ section.notes-page {
          flex-direction: row;
          flex-wrap: wrap;
          justify-content: center;
-         align-items: center;
+         align-items: flex-end;
+         align-self: flex-start;
+         // padding-left: 30rem;
          // width: 60vw;  
       }
    
@@ -41,7 +43,7 @@ section.notes-page {
       @include md {
          width: 100%;
          // position: relative;
-         // padding-left: 12rem;
+         padding: 0rem 3rem;
       }
    }
 
