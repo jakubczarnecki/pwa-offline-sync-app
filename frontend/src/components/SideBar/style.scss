@@ -64,8 +64,9 @@
    }
 
    .options-container {
+      width: 100%;
       backdrop-filter: blur(3px);
-      backdrop-filter: grayscale(10px);
+      // background-color: rgba(10, 10, 10, 90);
    }
 
    .fullwidth-button {
@@ -74,6 +75,8 @@
    }
 
    @include md {
+      // position: absolute;
+      width: 28rem;
       height: 100vh;
    }
 }
