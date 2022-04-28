@@ -35,9 +35,6 @@
 
    .color-tab--clicked {
       @extend .color-tab;
-      // border: 0.2rem solid;
-      // border-radius: 2.2rem;
-
       transform: scale(1.25);
       animation-name: selected;
       animation-duration: 2s;
