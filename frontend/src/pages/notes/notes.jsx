@@ -46,7 +46,13 @@ const NotesPage = () => {
                      <AddNoteModal handleClose={() => setModalOpen(false)} />
                   </Modal>
                ) : null}
+<<<<<<< HEAD
                {notes.length === 0 && <p>Notes has not been found :C</p>}
+=======
+               {(fetchedNotes?.length === 0 || localNotes?.length === 0) && (
+                  <p>No note has been found :C</p>
+               )}
+>>>>>>> 494af3b4cb4845bb7d0147ae0b4914b1501b89f9
             </div>
          </div>
       </section>
