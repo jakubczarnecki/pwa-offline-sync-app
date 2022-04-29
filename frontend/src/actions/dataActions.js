@@ -6,7 +6,6 @@ const getNotesByUser = async (dispatch, username) => {
 
    try {
       const response = await axios.get(`/notes/user/${username}`);
-      console.log("Getnotesbyuser response", response.data);
       const notes = response.data.map((note) => {
          const { _id, user, title, description, deadline, prio } = note;
          return {
@@ -31,7 +30,6 @@ const getNotesById = async (dispatch, noteID) => {
 
    try {
       const response = await axios.get(`/notes?id=${noteID}`);
-      console.log("Getnotesbyid response", response.data);
       const notes = response.data.map((note) => {
          const { _id, user, title, description, deadline, prio } = note;
          return {
@@ -53,8 +51,7 @@ const addNote = async (dispatch, note) => {
    dispatch({ type: "CLEAR_ERRORS" });
    dispatch({ type: "SET_LOADING" });
    try {
-      const response = await axios.post("/notes", note);
-      console.log("Addnote response", response.data);
+      await axios.post("/notes", note);
       const { username } = note;
       await getNotesByUser(dispatch, username);
       //TODO: addnote dispatch action
@@ -67,8 +64,7 @@ const updateNote = async (dispatch, id, note, username) => {
    dispatch({ type: "CLEAR_ERRORS" });
    dispatch({ type: "SET_LOADING" });
    try {
-      const response = await axios.put(`/notes/${id}`, note);
-      console.log("Updatenote response", response.data);
+      await axios.put(`/notes/${id}`, note);
 
       //TODO: updatenote dispatch action
       await getNotesByUser(dispatch, username);
@@ -82,9 +78,7 @@ const deleteNote = async (dispatch, id, username) => {
    dispatch({ type: "SET_LOADING" });
 
    try {
-      const response = await axios.delete(`/notes/${id}`);
-      console.log("Deletenote response", response.data);
-      console.log("username", username);
+      await axios.delete(`/notes/${id}`);
       //TODO: deletenote dispatch action
       await getNotesByUser(dispatch, username);
    } catch (err) {
