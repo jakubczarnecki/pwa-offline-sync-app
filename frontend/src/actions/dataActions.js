@@ -6,19 +6,7 @@ const getNotesByUser = async (dispatch, username) => {
 
    try {
       const response = await axios.get(`/notes/user/${username}`);
-      const notes = response.data.map((note) => {
-         const { _id, user, title, description, deadline, prio } = note;
-         return {
-            id: _id,
-            user: user,
-            title: title,
-            description: description,
-            deadline: deadline,
-            prio: prio,
-         };
-      });
-      dispatch({ type: "SET_NOTES", payload: { notes: notes } });
-      return notes;
+      dispatch({ type: "SET_NOTES", payload: { notes: response.data } });
    } catch (err) {
       dispatch({ type: "ADD_ERROR", payload: { errors: err.message } });
    }
@@ -30,18 +18,7 @@ const getNotesById = async (dispatch, noteID) => {
 
    try {
       const response = await axios.get(`/notes?id=${noteID}`);
-      const notes = response.data.map((note) => {
-         const { _id, user, title, description, deadline, prio } = note;
-         return {
-            id: _id,
-            user: user,
-            title: title,
-            description: description,
-            deadline: deadline,
-            prio: prio,
-         };
-      });
-      dispatch({ type: "SET_NOTES", payload: { notes: notes } });
+      dispatch({ type: "SET_NOTES", payload: { notes: response.data } });
    } catch (err) {
       dispatch({ type: "ADD_ERROR", payload: { errors: err.message } });
    }

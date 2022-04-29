@@ -31,8 +31,8 @@ const NotesPage = () => {
                   .filter((note) => prio == 0 || note.prio == prio)
                   .map((note) => (
                      <Note
-                        key={note.id}
-                        id={note.id}
+                        key={note._id}
+                        id={note._id}
                         variant={note.prio}
                         content={note.description}
                         date={note.date}
