@@ -4,6 +4,7 @@ $secondary-color: #0077e6dc;
 $background-color: #d0dcf0;
 $background-side-color: #e4ebf7;
 $inactive-color: #b9b9b9;
+$light-gray-color: #8d8d8d;
 $text-color: #1d1d20;
 $light-color: #f2eeee;
 $white-color: #ffffff;
@@ -37,8 +38,6 @@ $note-variant-3: #e9ff25;
 $note-variant-4: #8c52ff;
 $note-variant-5: #00d3fd;
 $note-variant-6: #fc5fa0;
-
-
 
 @mixin sm {
    @media (min-width: #{$screen-sm-min}) {
