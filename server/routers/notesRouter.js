@@ -30,7 +30,7 @@ notesRouter.get("/", async (req, res, next) => {
 notesRouter.post("/", async (req, res, next) => {
   try {
     const newNoteData = new Note({
-      user: req.body.user,
+      username: req.body.username,
       title: req.body.title,
       description: req.body.description,
       deadline: req.body.deadline,
@@ -45,9 +45,9 @@ notesRouter.post("/", async (req, res, next) => {
 });
 
 //read notes by user
-notesRouter.post("/byUser", async (req, res, next) => {
+notesRouter.get("/user/:username", async (req, res, next) => {
   try {
-    const notes = await Note.find({ user: req.body.user });
+    const notes = await Note.find({ username: req.params.username });
     res.status(200).json(notes);
   } catch (err) {
     res.status(500).json(err);

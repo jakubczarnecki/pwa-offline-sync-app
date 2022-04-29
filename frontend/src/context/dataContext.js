@@ -4,9 +4,12 @@ const dataContext = createContext();
 
 const initialState = {
    username: "",
-   prio: "",
+   prio: 0, // when prio eq 0 then all notes are visible
    notes: [],
-   currentRoute: {}
+   currentRoute: {},
+
+   loading: false,
+   errors: [],
 };
 
 const dataReducer = (state, action) => {
@@ -14,6 +17,7 @@ const dataReducer = (state, action) => {
       case "LOGIN": {
          return {
             ...state,
+            loading: false,
             username: action.payload.username,
          };
       }
@@ -23,13 +27,40 @@ const dataReducer = (state, action) => {
       case "SET_PRIO": {
          return {
             ...state,
+            loading: false,
             prio: action.payload.prio,
          };
       }
       case "SET_NOTES": {
          return {
             ...state,
+            loading: false,
             notes: action.payload.notes,
+         };
+      }
+      case "SET_LOADING": {
+         return {
+            ...state,
+            loading: true,
+         };
+      }
+      case "ADD_ERROR": {
+         return {
+            ...state,
+            loading: false,
+            errors: [
+               ...state.errors,
+               ...(Array.isArray(action.payload.errors)
+                  ? action.payload.errors
+                  : [action.payload.errors]),
+            ],
+         };
+      }
+      case "CLEAR_ERRORS": {
+         return {
+            ...state,
+            loading: false,
+            errors: [],
          };
       }
    }

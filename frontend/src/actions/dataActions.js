@@ -1,17 +1,13 @@
-/**
- *
- * TODO - na razie nie dodalem uicontext temu nie mam jak ustawic error
- */
+import axios from "axios";
 
-const getNotes = async (dispatchUI, dispatchData) => {
-   dispatchUI({ type: "CLEAR_ERRORS" });
-   dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
+const getNotesByUser = async (dispatch, username) => {
+   dispatch({ type: "CLEAR_ERRORS" });
+   dispatch({ type: "SET_LOADING" });
 
    try {
-      const response = await fetch("/api/notes");
-      if (!response.ok) throw new Error(response.statusText);
-      let notes = await response.json();
-      notes = notes.map((note) => {
+      const response = await axios.get(`/notes/user/${username}`);
+      console.log("Getnotesbyuser response", response.data);
+      const notes = response.data.map((note) => {
          const { _id, user, title, description, deadline, prio } = note;
          return {
             id: _id,
@@ -22,57 +18,21 @@ const getNotes = async (dispatchUI, dispatchData) => {
             prio: prio,
          };
       });
-      dispatchData({ type: "SET_NOTES", payload: { notes: notes } });
-      dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
-   } catch (err) {
-      dispatchUI({ type: "SET_ERRORS", payload: [err.message] });
-      dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
-   }
-};
-
-const getNotesByUser = async (dispatchUI, dispatchData, user) => {
-   dispatchUI({ type: "CLEAR_ERRORS" });
-   dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
-
-   try {
-      const response = await fetch("/api/notes/byUser", {
-         method: "POST",
-         headers: {
-            "Content-Type": "application/json",
-         },
-         body: JSON.stringify(user),
-      });
-      if (!response.ok) throw new Error(response.statusText);
-      let notes = await response.json();
-      notes = notes.map((note) => {
-         const { _id, user, title, description, deadline, prio } = note;
-         return {
-            id: _id,
-            user: user,
-            title: title,
-            description: description,
-            deadline: deadline,
-            prio: prio,
-         };
-      });
-      dispatchData({ type: "SET_NOTES", payload: { notes: notes } });
-      dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
+      dispatch({ type: "SET_NOTES", payload: { notes: notes } });
       return notes;
    } catch (err) {
-      dispatchUI({ type: "SET_ERRORS", payload: [err.message] });
-      dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
+      dispatch({ type: "ADD_ERROR", payload: { errors: err.message } });
    }
 };
 
-const getNotesById = async (dispatchUI, dispatchData, id) => {
-   dispatchUI({ type: "CLEAR_ERRORS" });
-   dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
+const getNotesById = async (dispatch, noteID) => {
+   dispatch({ type: "CLEAR_ERRORS" });
+   dispatch({ type: "SET_LOADING" });
 
    try {
-      const response = await fetch(`/api/notes?id=${id}`);
-      if (!response.ok) throw new Error(response.statusText);
-      let notes = await response.json();
-      notes = notes.map((note) => {
+      const response = await axios.get(`/notes?id=${noteID}`);
+      console.log("Getnotesbyid response", response.data);
+      const notes = response.data.map((note) => {
          const { _id, user, title, description, deadline, prio } = note;
          return {
             id: _id,
@@ -83,67 +43,53 @@ const getNotesById = async (dispatchUI, dispatchData, id) => {
             prio: prio,
          };
       });
-      dispatchData({ type: "SET_NOTES", payload: { notes: notes } });
-      dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
+      dispatch({ type: "SET_NOTES", payload: { notes: notes } });
    } catch (err) {
-      dispatchUI({ type: "SET_ERRORS", payload: [err.message] });
-      dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
+      dispatch({ type: "ADD_ERROR", payload: { errors: err.message } });
    }
 };
 
-const addNote = async (dispatchUI, dispatchData, note) => {
-   dispatchUI({ type: "CLEAR_ERRORS" });
-   dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
+const addNote = async (dispatch, note) => {
+   dispatch({ type: "CLEAR_ERRORS" });
+   dispatch({ type: "SET_LOADING" });
    try {
-      const response = await fetch("/api/notes", {
-         method: "POST",
-         headers: {
-            "Content-Type": "application/json",
-         },
-         body: JSON.stringify(note),
-      });
-      if (!response.ok) throw new Error(response.statusText);
-      const { user } = note;
-      await getNotesByUser(dispatchUI, dispatchData, { user: user }); // oj cos czuje ze tego nie powinno tu byc
+      const response = await axios.post("/notes", note);
+      console.log("Addnote response", response.data);
+      const { username } = note;
+      await getNotesByUser(dispatch, username);
+      //TODO: addnote dispatch action
    } catch (err) {
-      dispatchUI({ type: "SET_ERRORS", payload: [err.message] });
-      dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
+      dispatch({ type: "ADD_ERROR", payload: { errors: err.message } });
    }
 };
 
-const updateNote = async (dispatchUI, id, note) => {
-   dispatchUI({ type: "CLEAR_ERRORS" });
-   dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
+const updateNote = async (dispatch, id, note, username) => {
+   dispatch({ type: "CLEAR_ERRORS" });
+   dispatch({ type: "SET_LOADING" });
    try {
-      const response = await fetch(`/api/notes/${id}`, {
-         method: "PUT",
-         headers: {
-            "Content-Type": "application/json",
-         },
-         body: JSON.stringify(note),
-      });
-      if (!response.ok) throw new Error(response.statusText);
-      dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
+      const response = await axios.put(`/notes/${id}`, note);
+      console.log("Updatenote response", response.data);
+
+      //TODO: updatenote dispatch action
+      await getNotesByUser(dispatch, username);
    } catch (err) {
-      dispatchUI({ type: "SET_ERRORS", payload: [err.message] });
-      dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
+      dispatch({ type: "ADD_ERROR", payload: { errors: err.message } });
    }
 };
 
-const deleteNote = async (dispatchUI, id) => {
-   dispatchUI({ type: "CLEAR_ERRORS" });
-   dispatchUI({ type: "SET_LOADING", payload: { loading: true } });
+const deleteNote = async (dispatch, id, username) => {
+   dispatch({ type: "CLEAR_ERRORS" });
+   dispatch({ type: "SET_LOADING" });
 
    try {
-      const response = await fetch(`/api/notes/${id}`, {
-         method: "DELETE",
-      });
-      if (!response.ok) throw new Error(response.statusText);
-      dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
+      const response = await axios.delete(`/notes/${id}`);
+      console.log("Deletenote response", response.data);
+      console.log("username", username);
+      //TODO: deletenote dispatch action
+      await getNotesByUser(dispatch, username);
    } catch (err) {
-      dispatchUI({ type: "SET_ERRORS", payload: [err.message] });
-      dispatchUI({ type: "SET_LOADING", payload: { loading: false } });
+      dispatch({ type: "ADD_ERROR", payload: { errors: err.message } });
    }
 };
 
-export { getNotes, addNote, getNotesByUser, getNotesById, updateNote, deleteNote };
+export { addNote, getNotesByUser, getNotesById, updateNote, deleteNote };

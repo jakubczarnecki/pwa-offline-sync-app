@@ -4,7 +4,7 @@ const Schema = require("mongoose").Schema;
 
 const NoteSchema = new Schema(
   {
-    user: {
+    username: {
       type: String,
       require: true,
       min: 1,
