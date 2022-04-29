@@ -6,15 +6,8 @@ import { deleteNote } from "../../actions/dataActions";
 import { dataContext } from "../../context/dataContext";
 
 const Note = ({ id, className, content, variant, date }) => {
-   const variantClass =
-      Number.isInteger(variant) && variant > 0 && variant <= 6
-         ? `note-variant-${variant}`
-         : "note-variant-1";
-
-   const {
-      state: { username },
-      dispatch,
-   } = useContext(dataContext);
+   const variantClass = `note-variant-${variant}`;
+   const { dispatch } = useContext(dataContext);
 
    return (
       <div className={`note-wrapper ${variantClass} ${className}`}>
@@ -26,7 +19,7 @@ const Note = ({ id, className, content, variant, date }) => {
                <IconButton
                   icon="delete"
                   onClick={() => {
-                     deleteNote(dispatch, id, username);
+                     deleteNote(dispatch, id);
                   }}
                />
             </div>

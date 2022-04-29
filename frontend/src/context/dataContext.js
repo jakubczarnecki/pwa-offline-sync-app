@@ -21,9 +21,11 @@ const dataReducer = (state, action) => {
             username: action.payload.username,
          };
       }
+
       case "LOGOUT": {
          return initialState;
       }
+
       case "SET_PRIO": {
          return {
             ...state,
@@ -31,6 +33,7 @@ const dataReducer = (state, action) => {
             prio: action.payload.prio,
          };
       }
+
       case "SET_NOTES": {
          return {
             ...state,
@@ -38,12 +41,46 @@ const dataReducer = (state, action) => {
             notes: action.payload.notes,
          };
       }
+
+      case "DELETE_NOTE": {
+         const newNotes = state.notes.filter((note) => note.id !== action.payload.noteID);
+
+         return {
+            ...state,
+            loading: false,
+            notes: newNotes,
+         };
+      }
+
+      case "UPDATE_NOTE": {
+         const newNotes = [...state.notes];
+         const updatedNoteIndex = newNotes.findIndex(
+            (note) => note.id === action.payload.note.id
+         );
+         newNotes[updatedNoteIndex] = action.payload.note;
+
+         return {
+            ...state,
+            loading: false,
+            notes: newNotes,
+         };
+      }
+
+      case "ADD_NOTE": {
+         return {
+            ...state,
+            loading: false,
+            notes: [action.payload.note, ...state.notes],
+         };
+      }
+
       case "SET_LOADING": {
          return {
             ...state,
             loading: true,
          };
       }
+
       case "ADD_ERROR": {
          return {
             ...state,
@@ -56,6 +93,7 @@ const dataReducer = (state, action) => {
             ],
          };
       }
+
       case "CLEAR_ERRORS": {
          return {
             ...state,
