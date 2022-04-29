@@ -53,8 +53,8 @@ const LoginPage = () => {
                      onChange={(e) => setUsername(e.target.value)}
                   />
 
-                  <Button icon="cloud" onClick={handleLogin}>
-                     Let&apos;s go, weatherglow!
+                  <Button icon="login" onClick={handleLogin}>
+                  Let&apos;s go!
                   </Button>
                </form>
             </Card>
