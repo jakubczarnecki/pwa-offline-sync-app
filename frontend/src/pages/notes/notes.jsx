@@ -26,21 +26,18 @@ const NotesPage = () => {
             <h2 className="notes-header">These are your notes: </h2>
             <ColorFilter />
             <div className="notes-container">
-               {loading ? (
-                  <p>Loading...</p>
-               ) : (
-                  notes
-                     .filter((note) => prio == 0 || note.prio == prio)
-                     .map((note) => (
-                        <Note
-                           key={note.id}
-                           id={note.id}
-                           variant={note.prio}
-                           content={note.description}
-                           date={note.date}
-                        />
-                     ))
-               )}
+               {loading && <p>Loading...</p>}
+               {notes
+                  .filter((note) => prio == 0 || note.prio == prio)
+                  .map((note) => (
+                     <Note
+                        key={note.id}
+                        id={note.id}
+                        variant={note.prio}
+                        content={note.description}
+                        date={note.date}
+                     />
+                  ))}
                {modalOpen ? (
                   <Modal>
                      <AddNoteModal handleClose={() => setModalOpen(false)} />

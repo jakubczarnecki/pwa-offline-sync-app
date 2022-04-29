@@ -51,36 +51,31 @@ const addNote = async (dispatch, note) => {
    dispatch({ type: "CLEAR_ERRORS" });
    dispatch({ type: "SET_LOADING" });
    try {
-      await axios.post("/notes", note);
-      const { username } = note;
-      await getNotesByUser(dispatch, username);
-      //TODO: addnote dispatch action
+      const response = await axios.post("/notes", note);
+      dispatch({ type: "ADD_NOTE", payload: { note: response.data } });
    } catch (err) {
       dispatch({ type: "ADD_ERROR", payload: { errors: err.message } });
    }
 };
 
-const updateNote = async (dispatch, id, note, username) => {
+const updateNote = async (dispatch, id, note) => {
    dispatch({ type: "CLEAR_ERRORS" });
    dispatch({ type: "SET_LOADING" });
    try {
       await axios.put(`/notes/${id}`, note);
-
-      //TODO: updatenote dispatch action
-      await getNotesByUser(dispatch, username);
+      dispatch({ type: "UPDATE_NOTE", payload: { note } });
    } catch (err) {
       dispatch({ type: "ADD_ERROR", payload: { errors: err.message } });
    }
 };
 
-const deleteNote = async (dispatch, id, username) => {
+const deleteNote = async (dispatch, id) => {
    dispatch({ type: "CLEAR_ERRORS" });
    dispatch({ type: "SET_LOADING" });
 
    try {
       await axios.delete(`/notes/${id}`);
-      //TODO: deletenote dispatch action
-      await getNotesByUser(dispatch, username);
+      dispatch({ type: "DELETE_NOTE", payload: { noteID: id } });
    } catch (err) {
       dispatch({ type: "ADD_ERROR", payload: { errors: err.message } });
    }
