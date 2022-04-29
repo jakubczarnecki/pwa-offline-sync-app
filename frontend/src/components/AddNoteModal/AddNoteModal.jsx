@@ -6,17 +6,21 @@ import Card from "../shared/Card/Card";
 import TextArea from "../shared/TextArea/TextArea";
 import { addNote } from "../../actions/dataActions";
 import { dataContext } from "../../context/dataContext";
-import { uiContext } from "../../context/uiConext";
 
 const AddNoteModal = ({ handleClose }) => {
    const [noteData, setNoteData] = useState({
       title: "",
       description: "",
-      date: new Date(),
+      deadline: new Date(),
+      prio: 6,
    });
 
-   const { state: stateData, dispatch: dispatchData } = useContext(dataContext);
-   const { dispatch: dispatchUI } = useContext(uiContext);
+   const { state, dispatch } = useContext(dataContext);
+
+   const handleAddNote = async () => {
+      await addNote(dispatch, { username: state.username, ...noteData });
+      handleClose();
+   };
 
    return (
       <div className="add-note-modal">
@@ -54,20 +58,7 @@ const AddNoteModal = ({ handleClose }) => {
                   }
                />
 
-               <Button
-                  onClick={async () => { // async dodany specjalnie zeby sie ladowalo w modalu
-                     await addNote(dispatchUI, dispatchData, {
-                        user: stateData.username,
-                        title: noteData.title,
-                        description: noteData.description,
-                        deadline: noteData.date,
-                        prio: 6
-                     });
-                     handleClose();
-                  }}
-               >
-                  Submit
-               </Button>
+               <Button onClick={handleAddNote}>Submit</Button>
             </div>
          </Card>
       </div>
