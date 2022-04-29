@@ -8,12 +8,10 @@ section.notes-page {
 
    @include md {
       flex-direction: row;
-      
    }
 
    .notes-layout {
       padding: 15px 10px;
-      // width: 100%;
       display: flex;
       justify-content: flex-start;
       flex-direction: column;
@@ -32,22 +30,15 @@ section.notes-page {
          justify-content: center;
          align-items: flex-end;
          align-self: flex-start;
-         // padding-left: 30rem;
-         // width: 60vw;  
       }
-   
+
       .note-wrapper {
          margin: 5px;
       }
 
       @include md {
          width: 100%;
-         // position: relative;
          padding: 0rem 3rem;
       }
    }
-
-  
-
-   
 }

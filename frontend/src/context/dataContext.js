@@ -43,7 +43,9 @@ const dataReducer = (state, action) => {
       }
 
       case "DELETE_NOTE": {
-         const newNotes = state.notes.filter((note) => note.id !== action.payload.noteID);
+         const newNotes = state.notes.filter(
+            (note) => note._id !== action.payload.noteID
+         );
 
          return {
             ...state,

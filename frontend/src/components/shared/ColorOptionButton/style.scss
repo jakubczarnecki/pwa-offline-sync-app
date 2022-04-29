@@ -1,0 +1,58 @@
+@import "../../../variables.scss";
+
+.color-tab {
+   width: 2.2rem;
+   height: 2.2rem;
+   border-radius: 100%;
+   transition: 0.2s transform ease-in-out;
+   border: none;
+   margin-inline: 0.8rem;
+   cursor: pointer;
+
+   @include md {
+      width: 2.8rem;
+      height: 2.8rem;
+      margin-inline: 1.2rem;
+   }
+
+   &:hover {
+      transform: scale(1.25);
+   }
+
+   @keyframes selected {
+      50% {
+         opacity: 0.7;
+      }
+   }
+
+   &.active {
+      transform: scale(1.25);
+      animation-name: selected;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+   }
+
+   &.tab-color-1 {
+      background-color: $note-variant-1;
+   }
+
+   &.tab-color-2 {
+      background-color: $note-variant-2;
+   }
+
+   &.tab-color-3 {
+      background-color: $note-variant-3;
+   }
+
+   &.tab-color-4 {
+      background-color: $note-variant-4;
+   }
+
+   &.tab-color-5 {
+      background-color: $note-variant-5;
+   }
+
+   &.tab-color-6 {
+      background-color: $note-variant-6;
+   }
+}

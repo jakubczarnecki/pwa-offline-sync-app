@@ -6,13 +6,14 @@ import Card from "../shared/Card/Card";
 import TextArea from "../shared/TextArea/TextArea";
 import { addNote } from "../../actions/dataActions";
 import { dataContext } from "../../context/dataContext";
+import ColorPicker from "../ColorPicker/ColorPicker";
 
 const AddNoteModal = ({ handleClose }) => {
    const [noteData, setNoteData] = useState({
       title: "",
       description: "",
       deadline: new Date(),
-      prio: 6,
+      prio: 1,
    });
 
    const { state, dispatch } = useContext(dataContext);
@@ -57,7 +58,11 @@ const AddNoteModal = ({ handleClose }) => {
                      setNoteData({ ...noteData, description: e.target.value })
                   }
                />
-
+               <ColorPicker
+                  label="Color"
+                  value={noteData.prio}
+                  setValue={(prio) => setNoteData({ ...noteData, prio })}
+               />
                <Button onClick={handleAddNote}>Submit</Button>
             </div>
          </Card>

@@ -1,16 +1,35 @@
+import React, { useContext } from "react";
+import { dataContext } from "../../context/dataContext";
+import ColorOptionButton from "../shared/ColorOptionButton/ColorOptionButton";
 import "./style.scss";
-import React from "react";
-import ColorTab from "./ColorTab";
 
 export default function ColorFilter() {
+   const {
+      state: { prio },
+      dispatch,
+   } = useContext(dataContext);
+
+   const handleChangePrio = (newPrio) => {
+      if (newPrio == prio) {
+         newPrio = 0;
+      }
+
+      dispatch({
+         type: "SET_PRIO",
+         payload: { prio: newPrio },
+      });
+   };
+
    return (
       <div className="color-filter-wrapper">
-         <ColorTab prio={1} color="light-orange" />
-         <ColorTab prio={2} color="orange" />
-         <ColorTab prio={3} color="yellow" />
-         <ColorTab prio={4} color="purple" />
-         <ColorTab prio={5} color="turquoise" />
-         <ColorTab prio={6} color="pink" />
+         {[...Array(6)].map((_, index) => (
+            <ColorOptionButton
+               prio={index + 1}
+               active={index + 1 == prio}
+               onClick={() => handleChangePrio(index + 1)}
+               key={index}
+            />
+         ))}
       </div>
    );
 }
