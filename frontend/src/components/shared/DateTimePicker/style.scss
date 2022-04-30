@@ -1,0 +1,31 @@
+@import "../../../variables.scss";
+
+div.date-time-picker-wrapper {
+   display: flex;
+   flex-direction: column;
+
+   p {
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin: 0.2rem;
+      color: $shadow-color;
+   }
+
+   input {
+      padding: 1rem;
+      border: none;
+      outline: none;
+      background: $light-color;
+      border-radius: 5px;
+
+      border-bottom: rgba($shadow-color, 0.2) solid 2px;
+
+      &:focus {
+         border-bottom: $primary-color solid 2px;
+      }
+
+      &:disabled {
+         color: $inactive-color;
+      }
+   }
+}
