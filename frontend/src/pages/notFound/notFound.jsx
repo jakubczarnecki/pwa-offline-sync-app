@@ -8,7 +8,7 @@ const NotFoundPage = () => {
             <span className="huge-title">404</span>
             <h2>not found!</h2>
          </div>
-         <img src={"/cat.png"} alt="sad cat" />
+         <img src={"images/cat.png"} alt="sad cat" />
       </section>
    );
 };
