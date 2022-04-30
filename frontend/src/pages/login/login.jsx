@@ -35,7 +35,7 @@ const LoginPage = () => {
       <section className="login-page">
          <div className="login-wrapper">
             <div className="header">
-               <img src={"/logo_nobg.png"} alt="tick" />
+               <img src={"images/logo_nobg.png"} alt="tick" />
                <h2>
                   Start planning <br /> today!
                </h2>
