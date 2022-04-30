@@ -7,9 +7,8 @@ const initialState = {
    prio: 0, // when prio eq 0 then all notes are visible
    notes: [],
    currentRoute: {},
-
    loading: false,
-   errors: [],
+   errors: []
 };
 
 const dataReducer = (state, action) => {

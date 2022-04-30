@@ -11,7 +11,6 @@ import DateTimePicker from "../shared/DateTimePicker/DateTimePicker";
 
 const AddNoteModal = ({ handleClose }) => {
    const [noteData, setNoteData] = useState({
-      title: "",
       description: "",
       deadline: new Date().toISOString().slice(0, 16),
       prio: 1,
@@ -45,11 +44,10 @@ const AddNoteModal = ({ handleClose }) => {
             </span>
             <div className="content">
                <p className="section-title">Add new note</p>
-               <TextInput
-                  label="Title"
-                  placeholder="Title"
-                  value={noteData.title}
-                  onChange={(e) => setNoteData({ ...noteData, title: e.target.value })}
+               <ColorPicker
+                  label="Color"
+                  value={noteData.prio}
+                  setValue={(prio) => setNoteData({ ...noteData, prio })}
                />
                <TextArea
                   label="Content"
@@ -58,11 +56,6 @@ const AddNoteModal = ({ handleClose }) => {
                   onChange={(e) =>
                      setNoteData({ ...noteData, description: e.target.value })
                   }
-               />
-               <ColorPicker
-                  label="Color"
-                  value={noteData.prio}
-                  setValue={(prio) => setNoteData({ ...noteData, prio })}
                />
                <DateTimePicker
                   label="Deadline"

@@ -10,12 +10,6 @@ const NoteSchema = new Schema(
       min: 1,
       max: 32,
     },
-    title: {
-      type: String,
-      require: true,
-      min: 1,
-      max: 32,
-    },
     description: {
       type: String,
       require: true,

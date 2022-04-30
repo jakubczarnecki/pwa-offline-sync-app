@@ -31,7 +31,6 @@ notesRouter.post("/", async (req, res, next) => {
   try {
     const newNoteData = new Note({
       username: req.body.username,
-      title: req.body.title,
       description: req.body.description,
       deadline: req.body.deadline,
       prio: req.body.prio,
@@ -71,7 +70,6 @@ notesRouter.put("/:id", async (req, res, next) => {
       { _id: req.params.id },
       {
         $set: {
-          title: req.body.title,
           description: req.body.description,
           deadline: req.body.deadline,
           prio: req.body.prio,

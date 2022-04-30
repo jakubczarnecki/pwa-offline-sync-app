@@ -10,6 +10,7 @@ div.color-picker-wrapper {
 
    div.values {
       display: flex;
+      justify-content: space-evenly;
       margin: 0.6rem 0;
 
       button.color-tab {
