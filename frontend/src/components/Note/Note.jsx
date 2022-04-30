@@ -13,7 +13,7 @@ const Note = ({ id, className, content, variant, date }) => {
          <div className={`note-wrapper note-variant-${variant} ${className}`}>
             <textarea value={content} disabled />
             <div className="note-footer">
-               <p className="date">{moment(date).format("MMM DD, YYYY")}</p>
+               <p className="date">{moment(date).format("MMM DD, YYYY HH:mm")}</p>
                <div className="buttons">
                   <IconButton icon="edit" />
                   <IconButton
