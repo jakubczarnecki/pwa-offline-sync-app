@@ -7,12 +7,13 @@ import TextArea from "../shared/TextArea/TextArea";
 import { addNote } from "../../actions/dataActions";
 import { dataContext } from "../../context/dataContext";
 import ColorPicker from "../ColorPicker/ColorPicker";
+import DateTimePicker from "../shared/DateTimePicker/DateTimePicker";
 
 const AddNoteModal = ({ handleClose }) => {
    const [noteData, setNoteData] = useState({
       title: "",
       description: "",
-      deadline: new Date(),
+      deadline: new Date().toISOString().slice(0, 16),
       prio: 1,
    });
 
@@ -62,6 +63,11 @@ const AddNoteModal = ({ handleClose }) => {
                   label="Color"
                   value={noteData.prio}
                   setValue={(prio) => setNoteData({ ...noteData, prio })}
+               />
+               <DateTimePicker
+                  label="Deadline"
+                  value={noteData.deadline}
+                  onChange={(value) => setNoteData({ ...noteData, deadline: value })}
                />
                <Button onClick={handleAddNote}>Submit</Button>
             </div>
