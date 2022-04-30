@@ -7,7 +7,7 @@
    background: $background-side-color;
    position: sticky;
    top: 0;
-   z-index: 0;
+   z-index: 1;
 
    .greeter-container {
       display: flex;

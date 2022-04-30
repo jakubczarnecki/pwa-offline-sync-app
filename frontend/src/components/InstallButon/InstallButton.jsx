@@ -13,7 +13,7 @@ const InstallButton = () => {
 
    return (
       <Button
-         onClick={() => {
+         onClick={() => { // drawer needs to be not shown
             if (event) {
                event.prompt();
             } else {

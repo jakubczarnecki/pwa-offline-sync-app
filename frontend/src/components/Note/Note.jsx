@@ -8,6 +8,11 @@ import Modal from "../shared/Modal/Modal";
 const Note = ({ id, className, content, color, date }) => {
    const [modalOpen, setModalOpen] = useState(false);
 
+   const handleModal = (isOpen, overflow) => {
+      setModalOpen(isOpen);
+      document.body.style.overflow = overflow;
+   };
+
    return (
       <>
          <div className={`note-wrapper note-variant-${color} ${className}`}>
@@ -19,7 +24,7 @@ const Note = ({ id, className, content, color, date }) => {
                   <IconButton
                      icon="delete"
                      onClick={() => {
-                        setModalOpen(true);
+                        handleModal(true, "hidden");
                      }}
                   />
                </div>
@@ -29,7 +34,9 @@ const Note = ({ id, className, content, color, date }) => {
             <Modal>
                <ConfirmDeleteNoteModal
                   noteID={id}
-                  handleClose={() => setModalOpen(false)}
+                  handleClose={() => {
+                     handleModal(false, "visible");
+                  }}
                />
             </Modal>
          )}

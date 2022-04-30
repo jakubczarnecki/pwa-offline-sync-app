@@ -26,6 +26,14 @@ const SideBar = ({ className, username, modal }) => {
       });
    };
 
+   const handleModal = (e) => {
+      e.preventDefault();
+
+      modal(e);
+      drawer.current.className = "options-container hidden";
+      document.body.style.overflow = "hidden";
+   };
+
    return (
       <div className="side-bar">
          <div className="greeter-container">
@@ -35,7 +43,11 @@ const SideBar = ({ className, username, modal }) => {
 
          <div ref={drawer} className="options-container hidden">
             <div className="options-container-top">
-               <Button icon="add_circle" className="fullwidth-button" onClick={modal}>
+               <Button
+                  icon="add_circle"
+                  className="fullwidth-button"
+                  onClick={handleModal}
+               >
                   Add note
                </Button>
             </div>

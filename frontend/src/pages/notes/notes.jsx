@@ -19,6 +19,11 @@ const NotesPage = () => {
       getNotesByUser(dispatch, username);
    }, []);
 
+   const handleClose = () => {
+      setModalOpen(false);
+      document.body.style.overflow = "visible";
+   };
+
    return (
       <section className="notes-page">
          <SideBar username={username} modal={setModalOpen} />
@@ -40,7 +45,7 @@ const NotesPage = () => {
                   ))}
                {modalOpen && (
                   <Modal>
-                     <AddNoteModal handleClose={() => setModalOpen(false)} />
+                     <AddNoteModal handleClose={handleClose} />
                   </Modal>
                )}
                {notes.length === 0 && <p>Notes has not been found :C</p>}
