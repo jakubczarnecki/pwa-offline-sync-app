@@ -20,7 +20,7 @@ const NoteSchema = new Schema(
       type: Date,
       require: true,
     },
-    prio: {
+    color: {
       type: Number,
       default: 3,
       require: true,

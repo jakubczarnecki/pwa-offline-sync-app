@@ -33,7 +33,7 @@ notesRouter.post("/", async (req, res, next) => {
       username: req.body.username,
       description: req.body.description,
       deadline: req.body.deadline,
-      prio: req.body.prio,
+      color: req.body.color,
     });
 
     const note = await newNoteData.save();
@@ -72,7 +72,7 @@ notesRouter.put("/:id", async (req, res, next) => {
         $set: {
           description: req.body.description,
           deadline: req.body.deadline,
-          prio: req.body.prio,
+          color: req.body.color,
         },
       },
       { useFindAndModify: false }

@@ -10,7 +10,7 @@ import ColorFilter from "../../components/ColorFilter/ColorFilter";
 
 const NotesPage = () => {
    const {
-      state: { username, prio, loading, notes },
+      state: { username, color, loading, notes },
       dispatch,
    } = useContext(dataContext);
    const [modalOpen, setModalOpen] = useState(false);
@@ -28,12 +28,12 @@ const NotesPage = () => {
             <div className="notes-container">
                {loading && <p>Loading...</p>}
                {notes
-                  .filter((note) => prio == 0 || note.prio == prio)
+                  .filter((note) => color == 0 || note.color == color)
                   .map((note) => (
                      <Note
                         key={note._id}
                         id={note._id}
-                        variant={note.prio}
+                        color={note.color}
                         content={note.description}
                         date={note.deadline}
                      />

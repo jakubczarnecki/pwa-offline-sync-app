@@ -9,7 +9,7 @@ const ColorPicker = ({ label, value, setValue }) => {
          <div className="values">
             {[...Array(6)].map((_, index) => (
                <ColorOptionButton
-                  prio={index + 1}
+                  color={index + 1}
                   active={index + 1 == value}
                   onClick={() => setValue(index + 1)}
                   key={index}

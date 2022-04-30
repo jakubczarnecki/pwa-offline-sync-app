@@ -4,7 +4,7 @@ const dataContext = createContext();
 
 const initialState = {
    username: "",
-   prio: 0, // when prio eq 0 then all notes are visible
+   color: 0, // when color eq 0 then all notes are visible
    notes: [],
    currentRoute: {},
    loading: false,
@@ -25,11 +25,11 @@ const dataReducer = (state, action) => {
          return initialState;
       }
 
-      case "SET_PRIO": {
+      case "SET_COLOR": {
          return {
             ...state,
             loading: false,
-            prio: action.payload.prio,
+            color: action.payload.color,
          };
       }
 

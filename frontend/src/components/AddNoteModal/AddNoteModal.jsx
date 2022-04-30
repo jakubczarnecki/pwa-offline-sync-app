@@ -13,7 +13,7 @@ const AddNoteModal = ({ handleClose }) => {
    const [noteData, setNoteData] = useState({
       description: "",
       deadline: new Date().toISOString().slice(0, 16),
-      prio: 1,
+      color: 1,
    });
 
    const { state, dispatch } = useContext(dataContext);
@@ -46,8 +46,8 @@ const AddNoteModal = ({ handleClose }) => {
                <p className="section-title">Add new note</p>
                <ColorPicker
                   label="Color"
-                  value={noteData.prio}
-                  setValue={(prio) => setNoteData({ ...noteData, prio })}
+                  value={noteData.color}
+                  setValue={(color) => setNoteData({ ...noteData, color })}
                />
                <TextArea
                   label="Content"

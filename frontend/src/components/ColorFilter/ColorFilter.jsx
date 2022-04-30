@@ -5,18 +5,18 @@ import "./style.scss";
 
 export default function ColorFilter() {
    const {
-      state: { prio },
+      state: { color },
       dispatch,
    } = useContext(dataContext);
 
-   const handleChangePrio = (newPrio) => {
-      if (newPrio == prio) {
-         newPrio = 0;
+   const handleChangeColor = (newColor) => {
+      if (newColor == color) {
+         newColor = 0;
       }
 
       dispatch({
-         type: "SET_PRIO",
-         payload: { prio: newPrio },
+         type: "SET_COLOR",
+         payload: { color: newColor },
       });
    };
 
@@ -24,9 +24,9 @@ export default function ColorFilter() {
       <div className="color-filter-wrapper">
          {[...Array(6)].map((_, index) => (
             <ColorOptionButton
-               prio={index + 1}
-               active={index + 1 == prio}
-               onClick={() => handleChangePrio(index + 1)}
+               color={index + 1}
+               active={index + 1 == color}
+               onClick={() => handleChangeColor(index + 1)}
                key={index}
             />
          ))}
