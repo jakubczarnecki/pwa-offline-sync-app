@@ -35,14 +35,14 @@ const NotesPage = () => {
                         id={note._id}
                         variant={note.prio}
                         content={note.description}
-                        date={note.date}
+                        date={note.deadline}
                      />
                   ))}
-               {modalOpen ? (
+               {modalOpen && (
                   <Modal>
                      <AddNoteModal handleClose={() => setModalOpen(false)} />
                   </Modal>
-               ) : null}
+               )}
                {notes.length === 0 && <p>Notes has not been found :C</p>}
             </div>
          </div>
