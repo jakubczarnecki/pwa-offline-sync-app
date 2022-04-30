@@ -3,6 +3,7 @@ import Button from "../shared/Button/Button";
 import IconButton from "../shared/IconButton/IconButton";
 import "./style.scss";
 import { dataContext, DataProvider } from "../../context/dataContext";
+import InstallButton from "../InstallButon/InstallButton";
 
 const SideBar = ({ className, username, modal }) => {
    const { state, dispatch } = useContext(dataContext);
@@ -39,9 +40,7 @@ const SideBar = ({ className, username, modal }) => {
                </Button>
             </div>
             <div className="options-container-bottom">
-               <Button icon="install_desktop" className="fullwidth-button">
-                  Install on device
-               </Button>
+               <InstallButton />
                <Button onClick={handleLogout} icon="logout" className="fullwidth-button">
                   Logout
                </Button>
