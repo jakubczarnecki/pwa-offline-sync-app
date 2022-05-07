@@ -4,9 +4,9 @@ import Modal from "../../components/shared/Modal/Modal";
 import Note from "../../components/Note/Note";
 import "./style.scss";
 import { dataContext } from "../../context/dataContext";
-import SideBar from "../../components/SideBar/SideBar";
 import { getNotesByUser } from "../../actions/dataActions";
 import ColorFilter from "../../components/ColorFilter/ColorFilter";
+import TopBar from "../../components/TopBar/TopBar";
 
 const NotesPage = () => {
    const {
@@ -26,7 +26,7 @@ const NotesPage = () => {
 
    return (
       <section className="notes-page">
-         <SideBar username={username} modal={setModalOpen} />
+         <TopBar username={username} modal={setModalOpen} />
          <div className="notes-layout">
             <h2 className="notes-header">These are your notes: </h2>
             <ColorFilter />

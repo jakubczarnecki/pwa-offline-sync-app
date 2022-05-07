@@ -6,9 +6,9 @@ section.notes-page {
    display: flex;
    flex-direction: column;
 
-   @include md {
-      flex-direction: row;
-   }
+   // @include md {
+   //    flex-direction: row;
+   // }
 
    .notes-layout {
       padding: 15px 10px;
