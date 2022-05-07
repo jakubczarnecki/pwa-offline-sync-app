@@ -5,10 +5,7 @@ section.notes-page {
    min-height: 100vh;
    display: flex;
    flex-direction: column;
-
-   // @include md {
-   //    flex-direction: row;
-   // }
+   justify-content: space-between;
 
    .notes-layout {
       padding: 15px 10px;
@@ -27,7 +24,7 @@ section.notes-page {
          display: flex;
          flex-direction: row;
          flex-wrap: wrap;
-         justify-content: center;
+         justify-content: space-between;
       }
 
       .note-wrapper {

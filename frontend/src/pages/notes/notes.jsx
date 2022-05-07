@@ -7,6 +7,7 @@ import { dataContext } from "../../context/dataContext";
 import { getNotesByUser } from "../../actions/dataActions";
 import ColorFilter from "../../components/ColorFilter/ColorFilter";
 import TopBar from "../../components/TopBar/TopBar";
+import BottomBar from "../../components/BottomBar/BottomBar";
 
 const NotesPage = () => {
    const {
@@ -51,6 +52,7 @@ const NotesPage = () => {
                {notes.length === 0 && <p>Notes has not been found :C</p>}
             </div>
          </div>
+         <BottomBar />
       </section>
    );
 };
