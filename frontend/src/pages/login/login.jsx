@@ -16,6 +16,7 @@ const LoginPage = () => {
    useEffect(() => {
       if (stateData.username) {
          const from = location.state?.from?.pathname || "/";
+         console.log(from);
          navigate(from, { replace: true });
       }
    }, [stateData]);
@@ -23,10 +24,12 @@ const LoginPage = () => {
    const handleLogin = (e) => {
       e.preventDefault();
 
+      localStorage.setItem("username", username);
+
       dispatchData({
          type: "LOGIN",
          payload: {
-            username,
+            username: localStorage.getItem("username"),
          },
       });
    };
@@ -54,7 +57,7 @@ const LoginPage = () => {
                   />
 
                   <Button icon="login" onClick={handleLogin}>
-                  Let&apos;s go!
+                     Let&apos;s go!
                   </Button>
                </form>
             </Card>
