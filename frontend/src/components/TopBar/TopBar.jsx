@@ -5,7 +5,7 @@ import "./style.scss";
 import { dataContext, DataProvider } from "../../context/dataContext";
 import InstallButton from "../InstallButon/InstallButton";
 
-const SideBar = ({ className, username, modal }) => {
+const TopBar = ({ className, username, modal }) => {
    const { state, dispatch } = useContext(dataContext);
 
    const drawer = useRef(null);
@@ -35,31 +35,18 @@ const SideBar = ({ className, username, modal }) => {
    };
 
    return (
-      <div className="side-bar">
-         <div className="greeter-container">
-            <div className="greeter-message category-title ">Hello, {username}!</div>
-            <Button icon="menu" className="drawer-button" onClick={toggleDrawer}></Button>
-         </div>
-
-         <div ref={drawer} className="options-container hidden">
-            <div className="options-container-top">
-               <Button
-                  icon="add_circle"
-                  className="fullwidth-button"
-                  onClick={handleModal}
-               >
-                  Add note
-               </Button>
-            </div>
-            <div className="options-container-bottom">
-               <InstallButton />
-               <Button onClick={handleLogout} icon="logout" className="fullwidth-button">
-                  Logout
-               </Button>
-            </div>
+      <div className="top-bar">
+         <h4>Hello, {username}!</h4>
+         <div className="buttons-wrapper">
+            <Button icon="add_circle" onClick={handleModal}>
+               Add note
+            </Button>
+            <Button icon="logout" onClick={handleLogout}>
+               Logout
+            </Button>
          </div>
       </div>
    );
 };
 
-export default SideBar;
+export default TopBar;

@@ -1,0 +1,36 @@
+@import "../../variables.scss";
+
+.bottom-bar {
+   display: flex;
+   flex-direction: row;
+   width: 100vw;
+   background: $background-side-color;
+   z-index: 1;
+   justify-content: space-between;
+   align-items: center;
+   background: linear-gradient(38deg, $secondary-color 0%, $primary-color 100%);
+
+   .buttons-wrapper {
+      display: flex;
+      .button-wrapper {
+         margin: 10px;
+         background-color: $light-color;
+
+         p {
+            padding: 0 0.66rem;
+            color: $text-color;
+         }
+
+         span {
+            color: $text-color;
+            margin-right: 0.5rem;
+         }
+      }
+   }
+
+   h4 {
+      margin: 10px;
+      color: #f2eeee;
+      font-size: 21px;
+   }
+}

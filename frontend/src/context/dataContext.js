@@ -3,12 +3,12 @@ import React, { createContext, useReducer } from "react";
 const dataContext = createContext();
 
 const initialState = {
-   username: "",
+   username: localStorage.getItem("username") || "",
    color: 0, // when color eq 0 then all notes are visible
    notes: [],
    currentRoute: {},
    loading: false,
-   errors: []
+   errors: [],
 };
 
 const dataReducer = (state, action) => {
@@ -22,7 +22,12 @@ const dataReducer = (state, action) => {
       }
 
       case "LOGOUT": {
-         return initialState;
+         localStorage.removeItem("username");
+
+         return {
+            ...initialState,
+            username: "",
+         };
       }
 
       case "SET_COLOR": {
