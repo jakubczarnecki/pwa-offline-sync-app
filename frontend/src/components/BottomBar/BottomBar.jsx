@@ -10,6 +10,9 @@ const BottomBar = ({ className }) => {
             <Button icon="download" onClick={() => {}}>
                Install on device
             </Button>
+            <Button icon="close" onClick={() => {}}>
+               Close
+            </Button>
          </div>
       </div>
    );
