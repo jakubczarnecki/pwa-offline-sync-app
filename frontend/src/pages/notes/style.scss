@@ -18,8 +18,14 @@ section.notes-page {
       align-items: center;
 
       .notes-header {
-         text-align: center;
-         padding: 40px 0;
+         padding: 30px 0;
+      }
+
+      .filter-bar {
+         display: flex;
+         width: 86%;
+         flex-direction: row;
+         justify-content: space-between;
       }
 
       .notes-container {

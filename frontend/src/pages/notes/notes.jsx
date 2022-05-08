@@ -7,6 +7,7 @@ import { dataContext } from "../../context/dataContext";
 import SideBar from "../../components/SideBar/SideBar";
 import { getNotesByUser } from "../../actions/dataActions";
 import ColorFilter from "../../components/ColorFilter/ColorFilter";
+import ReactLoading from "react-loading";
 
 const NotesPage = () => {
    const {
@@ -28,10 +29,16 @@ const NotesPage = () => {
       <section className="notes-page">
          <SideBar username={username} modal={setModalOpen} />
          <div className="notes-layout">
-            <h2 className="notes-header">These are your notes: </h2>
-            <ColorFilter />
+            <div className="notes-header">
+               <h2>These are your notes: </h2>
+            </div>
+            <div className="filter-bar">
+               <ColorFilter />
+               {loading && (
+                  <ReactLoading className="loading" type="bubbles" color="#4d6b6b" />
+               )}
+            </div>
             <div className="notes-container">
-               {loading && <p>Loading...</p>}
                {notes
                   .filter((note) => color == 0 || note.color == color)
                   .map((note) => (
