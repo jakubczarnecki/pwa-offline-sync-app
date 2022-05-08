@@ -6,12 +6,9 @@ import "./style.scss";
 import { dataContext } from "../../context/dataContext";
 import { getNotesByUser } from "../../actions/dataActions";
 import ColorFilter from "../../components/ColorFilter/ColorFilter";
-<<<<<<< HEAD
-import ReactLoading from "react-loading";
-=======
 import TopBar from "../../components/TopBar/TopBar";
 import BottomBar from "../../components/BottomBar/BottomBar";
->>>>>>> 85e7ffcff16b65e3a2174c5a476cfa49d589ef06
+import ReactLoading from "react-loading";
 
 const NotesPage = () => {
    const {
