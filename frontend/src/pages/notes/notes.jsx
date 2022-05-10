@@ -56,7 +56,7 @@ const NotesPage = () => {
                      <AddNoteModal handleClose={handleClose} />
                   </Modal>
                )}
-               {notes.length === 0 && <p>Notes has not been found :C</p>}
+               {notes.length === 0 && <p>No notes have been found :c</p>}
             </div>
          </div>
          <BottomBar />

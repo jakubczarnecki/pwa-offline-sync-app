@@ -12,18 +12,47 @@
 
    .buttons-wrapper {
       display: flex;
-      .button-wrapper {
-         margin: 10px;
-         background-color: $light-color;
 
-         p {
-            padding: 0 0.66rem;
-            color: $text-color;
-         }
+      .button-wrapper {
+         background: $primary-color;
+         border-radius: 50%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         padding: 15px;
+         cursor: pointer;
+         margin: 8px;
 
          span {
-            color: $text-color;
-            margin-right: 0.5rem;
+            color: $light-color;
+            margin-right: 0.1rem;
+            // display: none;
+         }
+
+         p {
+            display: none;
+         }
+      }
+
+      @include md {
+         padding-left: 1.5rem;
+         padding-right: 1.5rem;
+
+         .button-wrapper {
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            padding: 0.66rem;
+            border-radius: 5px;
+            border-bottom: rgba($shadow-color, 0.2) solid 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+
+            p {
+               display: block;
+               color: $white-color;
+               padding: 0 0.66rem;
+            }
          }
       }
    }
@@ -31,6 +60,6 @@
    h4 {
       margin: 10px;
       color: #f2eeee;
-      font-size: 30px;
+      font-size: 2rem;
    }
 }
