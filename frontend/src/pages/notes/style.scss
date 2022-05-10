@@ -5,10 +5,7 @@ section.notes-page {
    min-height: 100vh;
    display: flex;
    flex-direction: column;
-
-   @include md {
-      flex-direction: row;
-   }
+   justify-content: space-between;
 
    .notes-layout {
       padding: 15px 10px;
@@ -18,8 +15,14 @@ section.notes-page {
       align-items: center;
 
       .notes-header {
-         text-align: center;
-         padding: 40px 0;
+         padding: 30px 0;
+      }
+
+      .filter-bar {
+         display: flex;
+         width: 86%;
+         flex-direction: row;
+         justify-content: space-between;
       }
 
       .notes-container {
@@ -27,7 +30,7 @@ section.notes-page {
          display: flex;
          flex-direction: row;
          flex-wrap: wrap;
-         justify-content: center;
+         justify-content: space-between;
       }
 
       .note-wrapper {

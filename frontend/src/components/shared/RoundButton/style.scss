@@ -1,0 +1,12 @@
+@import "../../../variables.scss";
+
+.round-button-wrapper {
+   background: $light-color;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 15px;
+   cursor: pointer;
+   margin: 8px;
+}

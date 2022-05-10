@@ -1,14 +1,19 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 import Button from "../shared/Button/Button";
 import IconButton from "../shared/IconButton/IconButton";
 import "./style.scss";
 import { dataContext, DataProvider } from "../../context/dataContext";
 import InstallButton from "../InstallButon/InstallButton";
+import UseViewport from "../shared/UseViewport/UseViewport";
+import RoundButton from "../shared/RoundButton/RoundButton";
 
-const SideBar = ({ className, username, modal }) => {
+const TopBar = ({ className, username, modal }) => {
    const { state, dispatch } = useContext(dataContext);
 
    const drawer = useRef(null);
+
+   const { width } = UseViewport();
+   const breakpoint = 900;
 
    const toggleDrawer = () => {
       let currentClass = drawer.current.className;
@@ -35,31 +40,25 @@ const SideBar = ({ className, username, modal }) => {
    };
 
    return (
-      <div className="side-bar">
-         <div className="greeter-container">
-            <div className="greeter-message category-title ">Hello, {username}!</div>
-            <Button icon="menu" className="drawer-button" onClick={toggleDrawer}></Button>
-         </div>
-
-         <div ref={drawer} className="options-container hidden">
-            <div className="options-container-top">
-               <Button
-                  icon="add_circle"
-                  className="fullwidth-button"
-                  onClick={handleModal}
-               >
+      <div className="top-bar">
+         <h4>Hello, {username}!</h4>
+         {width > breakpoint ? (
+            <div className="buttons-wrapper">
+               <Button icon="add_circle" onClick={handleModal}>
                   Add note
                </Button>
-            </div>
-            <div className="options-container-bottom">
-               <InstallButton />
-               <Button onClick={handleLogout} icon="logout" className="fullwidth-button">
+               <Button icon="logout" onClick={handleLogout}>
                   Logout
                </Button>
             </div>
-         </div>
+         ) : (
+            <div className="buttons-wrapper">
+               <RoundButton icon="add_circle" onClick={handleModal} />
+               <RoundButton icon="logout" onClick={handleLogout} />
+            </div>
+         )}
       </div>
    );
 };
 
-export default SideBar;
+export default TopBar;
