@@ -11,21 +11,51 @@ div.date-time-picker-wrapper {
       color: $shadow-color;
    }
 
-   input {
-      padding: 1rem;
-      border: none;
-      outline: none;
-      background: $light-color;
-      border-radius: 5px;
+   &.hidden {
+      .react-date-picker__wrapper {
+         display: none;
+      }
+   }
 
-      border-bottom: rgba($shadow-color, 0.2) solid 2px;
+   & .react-date-picker {
+      .react-date-picker__wrapper {
+         padding: 1rem;
+         border: none;
+         outline: none;
+         background: $light-color;
+         border-radius: 5px;
+         border-bottom: rgba($shadow-color, 0.2) solid 2px;
 
-      &:focus {
-         border-bottom: $primary-color solid 2px;
+         &:focus {
+            border-bottom: $primary-color solid 2px;
+         }
+
+         &:disabled {
+            color: $inactive-color;
+         }
       }
 
-      &:disabled {
-         color: $inactive-color;
+      .react-date-picker__button {
+         &:hover,
+         &:focus {
+            svg {
+               stroke: $primary-color;
+            }
+         }
+      }
+
+      .react-calendar {
+         padding: 3px;
+         border-radius: 5px;
+         border: rgba($shadow-color, 0.2) solid 2px;
+
+         .react-calendar__tile--active {
+            background-color: $primary-color;
+         }
+         .react-calendar__tile--now {
+            background-color: $secondary-color;
+            color: white;
+         }
       }
    }
 }

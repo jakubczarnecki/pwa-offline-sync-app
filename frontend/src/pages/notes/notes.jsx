@@ -39,8 +39,8 @@ const NotesPage = () => {
                         key={note._id}
                         id={note._id}
                         color={note.color}
-                        content={note.description}
-                        date={note.deadline}
+                        description={note.description}
+                        deadline={note.deadline}
                      />
                   ))}
                {modalOpen && (

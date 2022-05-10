@@ -8,7 +8,7 @@ const initialState = {
    notes: [],
    currentRoute: {},
    loading: false,
-   errors: []
+   errors: [],
 };
 
 const dataReducer = (state, action) => {
@@ -56,7 +56,7 @@ const dataReducer = (state, action) => {
       case "UPDATE_NOTE": {
          const newNotes = [...state.notes];
          const updatedNoteIndex = newNotes.findIndex(
-            (note) => note.id === action.payload.note.id
+            (note) => note._id === action.payload.note._id
          );
          newNotes[updatedNoteIndex] = action.payload.note;
 

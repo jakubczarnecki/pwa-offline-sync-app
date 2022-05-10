@@ -26,7 +26,6 @@
    width: 15rem;
    height: 15rem;
    border-radius: 10px;
-   overflow: hidden;
    border-bottom: rgba($shadow-color, 0.2) solid 2px;
 
    textarea {
@@ -47,8 +46,24 @@
       align-items: center;
       padding: 0.5rem 1rem;
 
-      .date {
+      .button-wrapper.date {
+         cursor: auto;
          color: $text-color;
+         background-color: transparent;
+         border: none;
+         padding: 0;
+         margin: 0;
+
+         p {
+            padding: 0;
+            color: $text-color;
+            text-transform: none;
+         }
+      }
+
+      .date-time-picker-wrapper {
+         // display: none;
+         width: 10px;
       }
 
       .buttons {
@@ -56,6 +71,18 @@
 
          .icon-button-wrapper {
             margin: 0 0.2rem;
+         }
+      }
+   }
+
+   &.editing {
+      .note-footer {
+         .button-wrapper.date {
+            cursor: pointer;
+         }
+
+         .edit {
+            background-color: $primary-color;
          }
       }
    }

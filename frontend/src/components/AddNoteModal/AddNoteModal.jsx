@@ -12,7 +12,7 @@ import DateTimePicker from "../shared/DateTimePicker/DateTimePicker";
 const AddNoteModal = ({ handleClose }) => {
    const [noteData, setNoteData] = useState({
       description: "",
-      deadline: new Date().toISOString().slice(0, 16),
+      deadline: new Date(),
       color: 1,
    });
 
@@ -60,7 +60,9 @@ const AddNoteModal = ({ handleClose }) => {
                <DateTimePicker
                   label="Deadline"
                   value={noteData.deadline}
-                  onChange={(value) => setNoteData({ ...noteData, deadline: value })}
+                  onChange={(value) => {
+                     setNoteData({ ...noteData, deadline: value });
+                  }}
                />
                <Button onClick={handleAddNote}>Submit</Button>
             </div>
