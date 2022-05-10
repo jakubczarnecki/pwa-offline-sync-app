@@ -81,3 +81,25 @@ html {
       font-size: 16px;
    }
 }
+
+//container
+
+.container {
+   @include sm {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+   }
+
+   @include md {
+      width: 660px;
+   }
+
+   @include lg {
+      width: 950px;
+   }
+
+   @include xl {
+      width: 1200px;
+   }
+}

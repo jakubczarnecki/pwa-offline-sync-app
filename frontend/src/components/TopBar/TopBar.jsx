@@ -36,14 +36,16 @@ const TopBar = ({ className, username, modal }) => {
 
    return (
       <div className="top-bar">
-         <h4>Hello, {username}!</h4>
-         <div className="buttons-wrapper">
-            <Button icon="add_circle" onClick={handleModal}>
-               Add note
-            </Button>
-            <Button icon="logout" onClick={handleLogout}>
-               Logout
-            </Button>
+         <div className="container">
+            <h4>Hello, {username}!</h4>
+            <div className="buttons-wrapper">
+               <Button icon="add_circle" onClick={handleModal}>
+                  Add note
+               </Button>
+               <Button icon="logout" onClick={handleLogout}>
+                  Logout
+               </Button>
+            </div>
          </div>
       </div>
    );
