@@ -9,9 +9,9 @@
    justify-content: space-between;
    align-items: center;
    background: linear-gradient(38deg, $secondary-color 0%, $primary-color 100%);
-   position: "fixed";
-   left: "0";
-   bottom: "0";
+   position: fixed;
+   left: 0;
+   bottom: 0;
 
    .container {
       display: flex;

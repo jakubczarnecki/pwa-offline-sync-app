@@ -5,10 +5,7 @@
    background: $background-side-color;
    z-index: 1;
    display: block;
-   // margin-bottom: 200px;
-   // position: "fixed";
-   // left: "0";
-   // top: "0";
+   position: fixed;
 
    background: linear-gradient(38deg, $secondary-color 0%, $primary-color 100%);
 

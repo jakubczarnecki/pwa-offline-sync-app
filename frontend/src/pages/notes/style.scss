@@ -16,7 +16,7 @@ section.notes-page {
 
       .notes-header {
          padding-bottom: 2rem;
-         // margin-top: -10rem;
+         margin-top: 6rem;
          text-align: center;
 
          @include md {
@@ -37,6 +37,7 @@ section.notes-page {
          flex-direction: row;
          flex-wrap: wrap;
          justify-content: space-evenly;
+         margin-bottom: 45px;
 
          @include md {
             width: 60%;
