@@ -37,16 +37,21 @@ section.notes-page {
          flex-direction: row;
          flex-wrap: wrap;
          justify-content: space-evenly;
+         column-gap: 15px;
+         row-gap: 15px;
          margin-bottom: 45px;
+
+         .note-wrapper {
+            margin: 5px;
+            margin-bottom: 15px;
+            align-self: center;
+         }
 
          @include md {
             width: 60%;
+            display: grid;
+            grid-template-columns: [first] auto [line2] auto [line3] auto [col4-start] auto [five] auto [end];
          }
-      }
-
-      .note-wrapper {
-         margin: 5px;
-         margin-bottom: 15px;
       }
 
       @include md {
