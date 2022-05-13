@@ -13,11 +13,11 @@ root.render(
    </React.StrictMode>
 );
 
-// serviceWorkerRegistration.unregister();
-if ("serviceWorker" in navigator) {
-   navigator.serviceWorker.register("sw.js").then((registration) => {
-      console.log("ServiceWorker registration successful with scope: ", registration);
-   });
-}
+serviceWorkerRegistration.unregister();
+// if ("serviceWorker" in navigator) {
+//    navigator.serviceWorker.register("sw.js").then((registration) => {
+//       console.log("ServiceWorker registration successful with scope: ", registration);
+//    });
+// }
 
 reportWebVitals();
