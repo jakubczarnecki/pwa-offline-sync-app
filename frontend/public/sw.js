@@ -7,6 +7,8 @@ self.addEventListener("install", (e) => {
             .then(() => self.skipWaiting());
       })
    );
+
+   Notification.requestPermission();
 });
 
 self.addEventListener("activate", (event) => {
@@ -15,10 +17,20 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
-   console.log("fetch");
    event.respondWith(
-      caches.match(event.request, { ignoreSearch: true }).then((response) => {
-         return response || fetch(event.request);
-      })
+      (async function () {
+         var cache = await caches.open("todoRequests");
+         var cachedFiles = await cache.match(event.request);
+
+         try {
+            var response = await fetch(event.request);
+            await cache.put(event.request, response.clone());
+            return response;
+         } catch {
+            if (cachedFiles) {
+               return cachedFiles;
+            }
+         }
+      })()
    );
 });
