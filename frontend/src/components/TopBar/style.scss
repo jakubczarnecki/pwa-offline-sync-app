@@ -6,7 +6,6 @@
    z-index: 1;
    display: block;
    position: fixed;
-
    background: linear-gradient(38deg, $secondary-color 0%, $primary-color 100%);
 
    .container {
@@ -23,50 +22,32 @@
       .button-wrapper {
          background: $light-color;
          border-radius: 50%;
-         display: flex;
-         justify-content: center;
-         align-items: center;
          padding: 15px;
-         cursor: pointer;
          margin: 8px;
-
-         height: 48px;
-         width: 48px;
 
          span {
             color: $primary-color;
             margin-right: 0;
-            // display: none;
          }
 
          p {
+            color: $primary-color;
             display: none;
+         }
+
+         @include md {
+            padding: 0.66rem;
+            border-radius: 5px;
+
+            p {
+               display: block;
+            }
          }
       }
 
       @include md {
          padding-left: 1.5rem;
          padding-right: 1.5rem;
-
-         .button-wrapper {
-            width: fit-content;
-            display: flex;
-            align-items: center;
-            padding: 0.66rem;
-            border-radius: 5px;
-            border-bottom: rgba($shadow-color, 0.2) solid 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-
-            height: auto;
-            width: auto;
-
-            p {
-               color: $primary-color;
-               display: block;
-               padding: 0 0.66rem;
-            }
-         }
       }
    }
 

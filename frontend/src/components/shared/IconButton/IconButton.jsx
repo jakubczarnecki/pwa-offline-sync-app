@@ -4,7 +4,7 @@ import "./style.scss";
 const IconButton = ({ className, icon, onClick }) => {
    return (
       <div
-         className={`icon-button-wrapper ${className}`}
+         className={`icon-button-wrapper ${className ? className : ""}`}
          onClick={onClick}
          onKeyDown={onClick}
          role="button"

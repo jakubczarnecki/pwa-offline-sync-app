@@ -1,24 +1,22 @@
 @import "../../variables.scss";
 
 .bottom-bar {
+   width: 100%;
    display: flex;
    flex-direction: row;
-   width: 100vw;
-   background: $background-side-color;
-   z-index: 1;
    justify-content: space-between;
    align-items: center;
    background: linear-gradient(38deg, $secondary-color 0%, $primary-color 100%);
-   position: fixed;
+   position: sticky;
    left: 0;
    bottom: 0;
+   margin-top: 1rem;
 
    .container {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      flex-shrink: 0;
    }
 
    .buttons-wrapper {
@@ -27,14 +25,8 @@
       .button-wrapper {
          background: $light-color;
          border-radius: 50%;
-         display: flex;
-         justify-content: center;
-         align-items: center;
          padding: 15px;
-         cursor: pointer;
          margin: 8px;
-         height: 48px;
-         width: 48px;
 
          span {
             color: $primary-color;
@@ -42,45 +34,31 @@
          }
 
          p {
+            color: $primary-color;
             display: none;
+         }
+
+         @include md {
+            padding: 0.66rem;
+            border-radius: 5px;
+
+            p {
+               display: block;
+            }
          }
       }
 
       @include md {
          padding-left: 1.5rem;
          padding-right: 1.5rem;
-
-         .button-wrapper {
-            width: fit-content;
-            display: flex;
-            align-items: center;
-            padding: 0.66rem;
-            border-radius: 5px;
-            border-bottom: rgba($shadow-color, 0.2) solid 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-
-            height: auto;
-            width: auto;
-
-            p {
-               display: block;
-               color: $primary-color;
-               padding: 0 0.66rem;
-            }
-         }
       }
    }
 
    h4 {
-      margin: 10px;
       color: #f2eeee;
-      font-size: 1.5rem;
       margin-right: 1.5rem;
 
       @include md {
-         font-size: 2rem;
-         padding-left: 1.5rem;
       }
    }
 }

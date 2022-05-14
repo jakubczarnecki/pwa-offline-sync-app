@@ -1,31 +1,19 @@
 import React, { useEffect, useState } from "react";
+import useInstall from "../../util/useInstall";
 import Button from "../shared/Button/Button";
 
 const InstallButton = () => {
-   const [event, setEvent] = useState(null);
-
-   useEffect(() => {
-      window.addEventListener("beforeinstallprompt", (e) => {
-         e.preventDefault();
-         setEvent(e);
-      });
-   }, []);
+   const [prompt, promptToInstall] = useInstall();
 
    return (
       <Button
-         onClick={() => { // drawer needs to be not shown
-            if (event) {
-               event.prompt();
-            } else {
-               alert(
-                  "To install the app look for Add to Homescreen or Install in your browser's menu"
-               );
-            }
+         onClick={() => {
+            promptToInstall();
          }}
          icon="install_desktop"
          className="fullwidth-button"
       >
-         Install on device
+         Install App
       </Button>
    );
 };

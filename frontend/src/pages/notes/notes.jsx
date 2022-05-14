@@ -1,30 +1,28 @@
 import React, { useContext, useState, useEffect } from "react";
+import "./style.scss";
+
+import ReactLoading from "react-loading";
 import AddNoteModal from "../../components/AddNoteModal/AddNoteModal";
 import Modal from "../../components/shared/Modal/Modal";
 import Note from "../../components/Note/Note";
-import "./style.scss";
 import { dataContext } from "../../context/dataContext";
 import { getNotesByUser } from "../../actions/dataActions";
 import ColorFilter from "../../components/ColorFilter/ColorFilter";
 import TopBar from "../../components/TopBar/TopBar";
 import BottomBar from "../../components/BottomBar/BottomBar";
-import ReactLoading from "react-loading";
 
 const NotesPage = () => {
+   const [bottomBarVisible, setBottomBarVisible] = useState(true);
+   const [modalOpen, setModalOpen] = useState(false);
+
    const {
       state: { username, color, loading, notes },
       dispatch,
    } = useContext(dataContext);
-   const [modalOpen, setModalOpen] = useState(false);
 
    useEffect(() => {
       getNotesByUser(dispatch, username);
    }, []);
-
-   const handleClose = () => {
-      setModalOpen(false);
-      document.body.style.overflow = "visible";
-   };
 
    return (
       <section className="notes-page">
@@ -51,15 +49,20 @@ const NotesPage = () => {
                         deadline={note.deadline}
                      />
                   ))}
+
                {modalOpen && (
                   <Modal>
-                     <AddNoteModal handleClose={handleClose} />
+                     <AddNoteModal handleClose={() => setModalOpen(false)} />
                   </Modal>
                )}
+
                {notes.length === 0 && <p>No notes have been found :c</p>}
             </div>
          </div>
-         <BottomBar />
+
+         {bottomBarVisible && (
+            <BottomBar handleClose={() => setBottomBarVisible(false)} />
+         )}
       </section>
    );
 };
