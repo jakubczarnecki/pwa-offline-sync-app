@@ -1,22 +1,10 @@
-import React, { useContext, useRef, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Button from "../shared/Button/Button";
-import IconButton from "../shared/IconButton/IconButton";
 import "./style.scss";
-import { dataContext, DataProvider } from "../../context/dataContext";
-import InstallButton from "../InstallButon/InstallButton";
+import { dataContext } from "../../context/dataContext";
 
-const TopBar = ({ className, username, modal }) => {
-   const { state, dispatch } = useContext(dataContext);
-
-   const drawer = useRef(null);
-
-   const toggleDrawer = () => {
-      let currentClass = drawer.current.className;
-      drawer.current.className =
-         currentClass === "options-container hidden"
-            ? " options-container open"
-            : "options-container hidden";
-   };
+const TopBar = ({ username, setModalOpen }) => {
+   const { dispatch } = useContext(dataContext);
 
    const handleLogout = (e) => {
       e.preventDefault();
@@ -26,20 +14,12 @@ const TopBar = ({ className, username, modal }) => {
       });
    };
 
-   const handleModal = (e) => {
-      e.preventDefault();
-
-      modal(e);
-      drawer.current.className = "options-container hidden";
-      document.body.style.overflow = "hidden";
-   };
-
    return (
       <div className="top-bar">
          <div className="container">
             <h4>Hello, {username}!</h4>
             <div className="buttons-wrapper">
-               <Button icon="add_circle" onClick={handleModal}>
+               <Button icon="add_circle" onClick={() => setModalOpen(true)}>
                   Add note
                </Button>
                <Button icon="logout" onClick={handleLogout}>

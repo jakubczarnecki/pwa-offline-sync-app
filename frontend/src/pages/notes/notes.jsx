@@ -26,7 +26,7 @@ const NotesPage = () => {
 
    return (
       <section className="notes-page">
-         <TopBar username={username} modal={setModalOpen} />
+         <TopBar username={username} setModalOpen={setModalOpen} />
          <div className="notes-layout">
             <div className="notes-header">
                <h2>These are your notes: </h2>
