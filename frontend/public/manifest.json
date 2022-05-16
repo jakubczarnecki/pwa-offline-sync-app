@@ -32,14 +32,14 @@
    ],
    "screenshots" : [
       {
-        "src": "screen1.png",
+        "src": "images/screen1.png",
         "sizes": "740x360",
         "type": "image/png",
         "platform": "narrow",
         "label": "Homescreen of To do App"
       }, 
       {
-         "src": "screen2.png",
+         "src": "images/screen2.png",
          "sizes": "740x360",
          "type": "image/png",
          "platform": "narrow",
