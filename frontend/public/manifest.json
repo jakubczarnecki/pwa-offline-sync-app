@@ -29,5 +29,21 @@
          "url": "/.",
          "icons": [{ "src": "images/logo192.png", "sizes": "192x192" }]
       }
-   ]
+   ],
+   "screenshots" : [
+      {
+        "src": "screen1.png",
+        "sizes": "740x360",
+        "type": "image/png",
+        "platform": "narrow",
+        "label": "Homescreen of To do App"
+      }, 
+      {
+         "src": "screen2.png",
+         "sizes": "740x360",
+         "type": "image/png",
+         "platform": "narrow",
+         "label": "Addinf a note"
+       }
+    ]
 }
